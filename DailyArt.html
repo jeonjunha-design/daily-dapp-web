@@ -65,6 +65,7 @@
     /* ── 메인 레이아웃 - 전체 뷰포트 ── */
     .main {
       height: calc(100vh - 60px);
+      height: calc(100dvh - 60px); /* 모바일 주소창 대응 */
       margin-top: 60px;
       display: flex;
       flex-direction: column;
@@ -85,7 +86,7 @@
       width: auto; height: auto;
       object-fit: contain;
       display: block;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.3s ease;
     }
     .artwork-image-wrap img.hidden { opacity: 0; }
 
@@ -354,6 +355,7 @@
       { id:13, title:"Impression, Sunrise", title_ko:"인상, 해돋이", artist_display:"Claude Monet\nFrench, 1840–1926", date_display:"1872", medium_display:"Oil on canvas", place_of_origin:"France", image_file:"14_impression_sunrise.jpg", collection:"Musée Marmottan Monet, Paris", description_en:"This painting gave the Impressionist movement its name. The hazy harbor scene was initially criticized but came to define a revolutionary approach to painting.", description_ko:"「인상, 해돋이」는 이 그림에서 '인상주의'라는 명칭이 유래한 역사적 작품입니다. 르아브르 항구의 새벽 풍경을 빠른 붓질로 포착해 처음에는 비판받았지만, 회화의 혁명을 알리는 서막이 되었습니다." },
       { id:14, title:"The Creation of Adam", title_ko:"아담의 창조", artist_display:"Michelangelo\nItalian, 1475–1564", date_display:"c. 1508–1512", medium_display:"Fresco", place_of_origin:"Italy", image_file:"15_creation_of_adam.jpg", collection:"Sistine Chapel, Vatican City", description_en:"Part of the Sistine Chapel ceiling, The Creation of Adam features the almost-touching fingers of God and Adam, one of the most iconic images in Western art.", description_ko:"「아담의 창조」는 시스티나 성당 천장화 중 가장 유명한 장면입니다. 하나님과 아담의 손이 닿을 듯 마주하는 장면은 서양 미술 역사상 가장 상징적인 이미지가 되었습니다." },
       { id:15, title:"Arnolfini Portrait", title_ko:"아르놀피니 부부의 초상", artist_display:"Jan van Eyck\nFlemish, c. 1390–1441", date_display:"1434", medium_display:"Oil on oak panel", place_of_origin:"Belgium", image_file:"16_arnolfini.jpg", collection:"National Gallery, London", description_en:"The Arnolfini Portrait is a double portrait famous for its astonishing detail and symbolic richness. The convex mirror in the background reflects the entire room.", description_ko:"「아르놀피니 부부의 초상」은 놀라운 세밀함과 상징성으로 유명한 플랑드르 회화의 걸작입니다. 배경의 볼록 거울에 방 전체가 반영되어 있으며, 초기 유화 기법의 정수를 보여줍니다." },
+
       { id:17, title:"The Scream", title_ko:"절규", artist_display:"Edvard Munch\nNorwegian, 1863–1944", date_display:"1893", medium_display:"Oil, tempera and pastel on cardboard", place_of_origin:"Norway", image_file:"19_scream.jpg", collection:"National Gallery, Oslo", description_en:"The Scream is one of the most iconic images in art history. The agonized figure against a swirling orange sky expresses a profound sense of existential dread and anxiety.", description_ko:"「절규」는 미술사에서 가장 상징적인 이미지 중 하나입니다. 소용돌이치는 붉은 하늘 아래 괴로움에 가득 찬 인물의 표정은 인간의 실존적 불안과 공포를 강렬하게 표현합니다." },
       { id:18, title:"The Potato Eaters", title_ko:"감자 먹는 사람들", artist_display:"Vincent van Gogh\nDutch, 1853–1890", date_display:"1885", medium_display:"Oil on canvas", place_of_origin:"Netherlands", image_file:"22_potato_eaters.jpg", collection:"Van Gogh Museum, Amsterdam", description_en:"The Potato Eaters is Van Gogh's first major work, depicting peasants sharing a meal by lamplight. The dark, earthy tones reflect the harsh reality of rural life.", description_ko:"「감자 먹는 사람들」은 반 고흐의 첫 번째 주요 작품입니다. 램프 불빛 아래 식사를 나누는 농민들의 모습을 어둡고 거친 색채로 담아 농촌의 고된 삶을 사실적으로 표현했습니다." },
       { id:19, title:"Olympia", title_ko:"올랭피아", artist_display:"Édouard Manet\nFrench, 1832–1883", date_display:"1863", medium_display:"Oil on canvas", place_of_origin:"France", image_file:"24_olympia.jpg", collection:"Musée d'Orsay, Paris", description_en:"Olympia caused a scandal when exhibited in 1865. Manet's direct and unidealized depiction of a nude woman challenged academic conventions and paved the way for modern art.", description_ko:"「올랭피아」는 1865년 전시 당시 엄청난 스캔들을 일으켰습니다. 마네의 직접적이고 이상화되지 않은 누드 표현은 학문적 관습에 도전하며 현대 미술의 길을 열었습니다." },
@@ -537,19 +539,31 @@
       document.getElementById('ttsBtn').classList.remove('playing');
       document.getElementById('ttsBar').style.width = '0%';
 
-      // 이미지 로드
+      // 이미지 로드 - 번쩍임 방지: 새 이미지 먼저 로드 후 교체
       const img = document.getElementById('artImage');
       img.alt = artwork.title || '';
-      img.onload = () => {
+      const newSrc = imageUrl(artwork);
+
+      // 같은 이미지면 스킵
+      if (img.src.endsWith(newSrc) || img.src === newSrc) {
+        imgSkeleton.classList.add('hidden');
+        img.classList.remove('hidden');
+        infoBar.classList.remove('hidden');
+        return;
+      }
+
+      const preloader = new Image();
+      preloader.onload = () => {
+        img.src = newSrc;
         imgSkeleton.classList.add('hidden');
         img.classList.remove('hidden');
         infoBar.classList.remove('hidden');
       };
-      img.onerror = () => {
+      preloader.onerror = () => {
         imgSkeleton.classList.add('hidden');
         infoBar.classList.remove('hidden');
       };
-      img.src = imageUrl(artwork);
+      preloader.src = newSrc;
     }
 
     // ── TTS ──
@@ -606,7 +620,15 @@
         document.getElementById('ttsBtn').textContent = '▶';
         document.getElementById('ttsBtn').classList.remove('playing');
         document.getElementById('ttsBar').style.width = '100%';
-        setTimeout(() => document.getElementById('ttsBar').style.width = '0%', 1500);
+        setTimeout(() => {
+          document.getElementById('ttsBar').style.width = '0%';
+          // 다음 작품으로 자동 이동
+          if (currentIndex < artworks.length - 1) {
+            currentIndex++;
+            renderArtwork(artworks[currentIndex]);
+            startTTS();
+          }
+        }, 800);
       };
       ttsUtterance.onerror = () => {
         ttsPlaying = false;
