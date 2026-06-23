@@ -62,50 +62,34 @@
     }
     .lang-btn:hover { background: rgba(255,255,255,0.1); color: var(--text-dark); }
 
-    /* ── 메인 레이아웃 ── */
+    /* ── 메인 레이아웃 - 전체 뷰포트 ── */
     .main {
-      max-width: 900px; margin: 0 auto;
-      padding: 100px 24px 80px;
-    }
-
-    /* ── 날짜 배지 ── */
-    .date-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--green-dim); border: 1px solid rgba(52,211,153,0.3);
-      color: var(--green); font-size: 12px; font-weight: 700;
-      padding: 6px 14px; border-radius: 20px; letter-spacing: 0.5px;
-      margin-bottom: 28px;
-    }
-    .date-badge::before { content: '🎨'; font-size: 13px; }
-
-    /* ── 작품 카드 ── */
-    .artwork-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
+      height: calc(100vh - 60px);
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
-      backdrop-filter: blur(8px);
-      transition: border-color 0.3s;
     }
-    .artwork-card.loaded { border-color: rgba(52,211,153,0.3); }
 
-    /* 이미지 영역 */
+    /* ── 이미지 영역 - 남은 공간 전부 ── */
     .artwork-image-wrap {
       position: relative;
-      background: #0c1017;
-      min-height: 380px;
+      flex: 1;
+      background: #0a0e15;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
+      min-height: 0;
     }
     .artwork-image-wrap img {
-      width: 100%; max-height: 520px;
+      max-width: 100%; max-height: 100%;
+      width: auto; height: auto;
       object-fit: contain;
       display: block;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.5s ease;
     }
     .artwork-image-wrap img.hidden { opacity: 0; }
 
-    /* 이미지 로딩 스켈레톤 */
+    /* 스켈레톤 */
     .img-skeleton {
       position: absolute; inset: 0;
       background: linear-gradient(90deg, #1e2533 25%, #252e40 50%, #1e2533 75%);
@@ -118,156 +102,114 @@
     }
     .img-skeleton.hidden { display: none; }
 
-    /* 작품 정보 */
-    .artwork-info {
-      padding: 32px 36px 36px;
+    /* ── 하단 정보 바 ── */
+    .info-bar {
+      flex-shrink: 0;
+      background: rgba(20,25,35,0.95);
+      border-top: 1px solid var(--border);
+      padding: 14px 20px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
-    .artwork-origin {
-      font-size: 11px; font-weight: 700; color: var(--green);
-      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;
+    .info-bar.hidden { display: none; }
+
+    /* 제목 행: 제목 | TTS버튼 | ‹ 카운터 › */
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     .artwork-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(22px, 3vw, 30px);
+      font-size: clamp(15px, 2vw, 20px);
       font-weight: 700; color: #ffffff;
-      line-height: 1.3; margin-bottom: 8px;
-    }
-    .artwork-artist {
-      font-size: 15px; color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-    .artwork-date {
-      font-size: 13px; color: var(--text-dim);
-      margin-bottom: 28px;
+      line-height: 1.2;
+      flex: 1;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
 
-    /* 구분선 */
-    .divider {
-      height: 1px; background: var(--border); margin-bottom: 28px;
-    }
-
-    /* 해설 텍스트 */
-    .desc-label {
-      font-size: 11px; font-weight: 700; color: var(--green);
-      letter-spacing: 1px; margin-bottom: 12px;
-    }
-    .artwork-desc {
-      font-size: 15px; color: var(--text-muted);
-      line-height: 1.85; word-break: keep-all;
-      margin-bottom: 32px;
-      min-height: 80px;
-    }
-    .artwork-desc.loading {
-      background: linear-gradient(90deg, #1e2533 25%, #252e40 50%, #1e2533 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.4s infinite;
-      border-radius: 8px; color: transparent;
-    }
-
-    /* ── TTS 컨트롤 ── */
-    .tts-bar {
-      display: flex; align-items: center; gap: 12px;
-      background: rgba(52,211,153,0.06);
-      border: 1px solid rgba(52,211,153,0.2);
-      border-radius: 14px; padding: 16px 20px;
-      margin-bottom: 28px;
-    }
-    .tts-play-btn {
-      width: 44px; height: 44px; border-radius: 50%;
+    /* TTS 버튼 (아이콘만) */
+    .tts-icon-btn {
+      width: 36px; height: 36px; border-radius: 50%;
       background: var(--green); border: none; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px; flex-shrink: 0;
-      transition: all 0.2s; box-shadow: 0 4px 14px var(--green-glow);
+      font-size: 15px; flex-shrink: 0;
+      transition: all 0.2s; box-shadow: 0 2px 10px var(--green-glow);
     }
-    .tts-play-btn:hover { transform: scale(1.08); background: #2ecc8a; }
-    .tts-play-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-    .tts-info { flex: 1; }
-    .tts-title { font-size: 13px; font-weight: 600; color: var(--text-dark); margin-bottom: 3px; }
-    .tts-status { font-size: 12px; color: var(--text-dim); }
-    .tts-speed {
-      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
-      color: var(--text-muted); font-size: 12px; font-weight: 600;
-      padding: 6px 10px; border-radius: 8px; cursor: pointer; transition: all 0.2s;
-    }
-    .tts-speed:hover { background: rgba(255,255,255,0.1); color: var(--text-dark); }
+    .tts-icon-btn:hover { transform: scale(1.1); background: #2ecc8a; }
+    .tts-icon-btn.playing { background: #f59e0b; box-shadow: 0 2px 10px rgba(245,158,11,0.3); }
 
-    /* 재생 진행바 */
+    /* 좌우 네비 */
+    .nav-group {
+      display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+    }
+    .nav-icon-btn {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+      color: var(--text-muted); font-size: 20px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; line-height: 1;
+    }
+    .nav-icon-btn:hover { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.2); }
+    .nav-icon-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+    .nav-counter {
+      font-size: 12px; color: var(--text-dim); font-weight: 600;
+      min-width: 36px; text-align: center;
+    }
+
+    /* 메타 행: 작가 · 날짜 · 재료 */
+    .meta-row {
+      display: flex; align-items: center; gap: 12px;
+      flex-wrap: wrap;
+    }
+    .artwork-artist {
+      font-size: 13px; color: var(--text-muted); font-weight: 500;
+    }
+    .meta-dot { color: var(--text-dim); font-size: 11px; }
+    .artwork-date-inline {
+      font-size: 12px; color: var(--text-dim);
+    }
+    .artwork-medium-inline {
+      font-size: 12px; color: var(--text-dim);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      max-width: 200px;
+    }
+
+    /* TTS 진행바 */
     .tts-progress {
-      height: 3px; background: var(--border); border-radius: 2px;
-      margin-top: 10px; overflow: hidden;
+      height: 2px; background: var(--border); border-radius: 1px; overflow: hidden;
     }
     .tts-progress-bar {
-      height: 100%; background: var(--green); border-radius: 2px;
+      height: 100%; background: var(--green); border-radius: 1px;
       width: 0%; transition: width 0.3s linear;
     }
 
-    /* ── 메타 정보 태그 ── */
-    .meta-tags {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 0;
-    }
-    .meta-tag {
-      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-      border-radius: 8px; padding: 6px 12px;
-      font-size: 12px; color: var(--text-dim);
-    }
-    .meta-tag strong { color: var(--text-muted); font-weight: 600; }
-
-    /* ── 하단 내비게이션 ── */
-    .nav-bar {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-top: 28px; padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
-    .nav-arrow {
-      display: flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-      color: var(--text-muted); font-size: 13px; font-weight: 500;
-      padding: 10px 18px; border-radius: 10px; cursor: pointer;
-      transition: all 0.2s;
-    }
-    .nav-arrow:hover { background: rgba(255,255,255,0.08); color: var(--text-dark); border-color: rgba(255,255,255,0.2); }
-    .nav-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
-    .nav-counter {
-      font-size: 13px; color: var(--text-dim); font-weight: 500;
-    }
-
-    /* ── 새로고침 버튼 ── */
-    .refresh-btn {
-      display: flex; align-items: center; gap: 8px;
-      background: var(--green-dim); border: 1px solid rgba(52,211,153,0.3);
-      color: var(--green); font-size: 13px; font-weight: 600;
-      padding: 10px 18px; border-radius: 10px; cursor: pointer;
-      transition: all 0.2s; margin-top: 20px; width: 100%; justify-content: center;
-    }
-    .refresh-btn:hover { background: rgba(52,211,153,0.2); }
-    .refresh-btn.spinning .icon { animation: spin 0.8s linear infinite; display: inline-block; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
     /* ── 에러 상태 ── */
     .error-box {
-      text-align: center; padding: 60px 24px;
-      display: none;
+      position: absolute; inset: 0;
+      display: none; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 40px;
     }
-    .error-box.show { display: block; }
+    .error-box.show { display: flex; }
     .error-icon { font-size: 48px; margin-bottom: 16px; }
     .error-title { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
     .error-msg { font-size: 14px; color: var(--text-muted); }
 
-    /* ── 푸터 ── */
-    .footer {
-      text-align: center; padding: 40px 24px;
-      font-size: 12px; color: var(--text-dim);
-      border-top: 1px solid var(--border);
-      margin-top: 40px;
+    /* ── 날짜 배지 (이미지 위 절대 위치) ── */
+    .date-badge {
+      position: absolute; top: 12px; left: 12px; z-index: 5;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(20,25,35,0.75); border: 1px solid rgba(52,211,153,0.3);
+      color: var(--green); font-size: 11px; font-weight: 700;
+      padding: 5px 12px; border-radius: 20px; letter-spacing: 0.4px;
+      backdrop-filter: blur(8px);
     }
-    .footer a { color: var(--text-dim); text-decoration: none; }
-    .footer a:hover { color: var(--text-muted); }
 
-    /* ── 반응형 ── */
     @media (max-width: 600px) {
-      .artwork-info { padding: 24px 20px 28px; }
-      .tts-bar { padding: 14px 16px; }
-      .artwork-image-wrap { min-height: 240px; }
+      .artwork-medium-inline { display: none; }
+      .info-bar { padding: 12px 14px 10px; }
     }
   </style>
 </head>
@@ -283,74 +225,48 @@
 
   <main class="main">
 
-    <div class="date-badge" id="dateBadge">오늘의 작품을 불러오는 중...</div>
-
-    <!-- 메인 작품 카드 -->
-    <div class="artwork-card" id="artCard">
-
-      <!-- 이미지 -->
-      <div class="artwork-image-wrap">
-        <div class="img-skeleton" id="imgSkeleton"></div>
-        <img id="artImage" class="hidden" src="" alt="" />
-      </div>
-
+    <!-- 이미지 영역 (flex:1, 남은 공간 전부) -->
+    <div class="artwork-image-wrap">
+      <div class="img-skeleton" id="imgSkeleton"></div>
+      <img id="artImage" class="hidden" src="" alt="" />
+      <div class="date-badge" id="dateBadge">🎨 불러오는 중...</div>
       <!-- 에러 -->
       <div class="error-box" id="errorBox">
         <div class="error-icon">🖼️</div>
         <div class="error-title" id="errorTitle">작품을 불러오지 못했습니다</div>
         <div class="error-msg" id="errorMsg">잠시 후 다시 시도해 주세요.</div>
       </div>
-
-      <!-- 정보 -->
-      <div class="artwork-info" id="artInfo" style="display:none;">
-
-        <div class="artwork-origin" id="artOrigin"></div>
-        <div class="artwork-title" id="artTitle">—</div>
-        <div class="artwork-artist" id="artArtist"></div>
-        <div class="artwork-date" id="artDate"></div>
-
-        <div class="divider"></div>
-
-        <!-- TTS 플레이어 -->
-        <div class="tts-bar">
-          <button class="tts-play-btn" id="ttsBtn" title="음성 해설 재생">▶</button>
-          <div class="tts-info">
-            <div class="tts-title" id="ttsTitle">음성 해설</div>
-            <div class="tts-status" id="ttsStatus">재생 버튼을 눌러 해설을 들어보세요</div>
-            <div class="tts-progress">
-              <div class="tts-progress-bar" id="ttsBar"></div>
-            </div>
-          </div>
-          <button class="tts-speed" id="ttsSpeedBtn">1.0×</button>
-        </div>
-
-        <!-- 해설 텍스트 -->
-        <div class="desc-label" id="descLabel">작품 해설</div>
-        <div class="artwork-desc" id="artDesc"></div>
-
-        <!-- 메타 태그 -->
-        <div class="meta-tags" id="metaTags"></div>
-
-        <!-- 내비게이션 -->
-        <div class="nav-bar">
-          <button class="nav-arrow" id="prevBtn">← <span id="prevLabel">이전 작품</span></button>
-          <span class="nav-counter" id="navCounter"></span>
-          <button class="nav-arrow" id="nextBtn"><span id="nextLabel">다음 작품</span> →</button>
-        </div>
-
-      </div>
     </div>
 
-    <button class="refresh-btn" id="refreshBtn">
-      <span class="icon">🔄</span> <span id="refreshLabel">다른 작품 보기</span>
-    </button>
+    <!-- 하단 정보 바 -->
+    <div class="info-bar hidden" id="infoBar">
+
+      <!-- TTS 진행바 -->
+      <div class="tts-progress"><div class="tts-progress-bar" id="ttsBar"></div></div>
+
+      <!-- 제목 행: [제목] [🔊] [‹ 1/15 ›] -->
+      <div class="info-row">
+        <div class="artwork-title" id="artTitle">—</div>
+        <button class="tts-icon-btn" id="ttsBtn" title="음성 해설">▶</button>
+        <div class="nav-group">
+          <button class="nav-icon-btn" id="prevBtn" title="이전">‹</button>
+          <span class="nav-counter" id="navCounter">1/15</span>
+          <button class="nav-icon-btn" id="nextBtn" title="다음">›</button>
+        </div>
+      </div>
+
+      <!-- 메타 행: 작가 · 날짜 · 재료 -->
+      <div class="meta-row">
+        <span class="artwork-artist" id="artArtist"></span>
+        <span class="meta-dot">·</span>
+        <span class="artwork-date-inline" id="artDate"></span>
+        <span class="meta-dot">·</span>
+        <span class="artwork-medium-inline" id="artMedium"></span>
+      </div>
+
+    </div>
 
   </main>
-
-  <footer class="footer">
-    <p>작품 데이터 제공: <a href="https://www.artic.edu/" target="_blank">Art Institute of Chicago</a> (공개 API)</p>
-    <p style="margin-top:6px;">© 2026 Daily-Dapp</p>
-  </footer>
 
   <script>
     // ── 상태 ──
@@ -421,127 +337,219 @@
       return html.replace(/<[^>]+>/g, '').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&nbsp;/g,' ').trim();
     }
 
-    // ── AIC API: 오늘 날짜 시드로 작품 목록 가져오기 ──
-    async function fetchArtworks() {
+    // ── 로컬 이미지 기반 작품 데이터 (24개) ──
+    const ARTWORKS_DB = [
+      { id:1, title:"Starry Night", title_ko:"별이 빛나는 밤", artist_display:"Vincent van Gogh\nDutch, 1853–1890", date_display:"1889", medium_display:"Oil on canvas", place_of_origin:"Netherlands", image_file:"01_starry_night.jpg", collection:"Museum of Modern Art, New York", description_en:"The Starry Night depicts the view from the east-facing window of his asylum room at Saint-Paul-de-Mausole, just before sunrise. The swirling sky and luminous stars contrast with the quiet village below.", description_ko:"「별이 빛나는 밤」은 반 고흐가 생 폴 드 무졸 요양원에서 치료를 받던 중 창문 너머로 바라본 새벽 풍경을 담은 작품입니다. 소용돌이치는 밤하늘과 빛나는 별들, 그리고 고요한 마을이 극적으로 대비를 이루며, 고흐 특유의 강렬한 붓 터치와 색채가 감상자에게 깊은 감동을 전합니다." },
+      { id:2, title:"Girl with a Pearl Earring", title_ko:"진주 귀걸이를 한 소녀", artist_display:"Johannes Vermeer\nDutch, 1632–1675", date_display:"c. 1665", medium_display:"Oil on canvas", place_of_origin:"Netherlands", image_file:"02_pearl_earring.jpg", collection:"Mauritshuis, The Hague", description_en:"Often referred to as the Mona Lisa of the North, this tronie by Vermeer features a girl's direct gaze and luminous pearl earring creating an intimate sense of connection with the viewer.", description_ko:"「진주 귀걸이를 한 소녀」는 '북쪽의 모나리자'로 불리는 베르메르의 대표작입니다. 어두운 배경에서 고개를 돌린 소녀의 눈빛과 귀에 달린 진주 귀걸이의 광택이 신비로운 분위기를 자아냅니다." },
+      { id:3, title:"The Gleaners", title_ko:"이삭 줍는 사람들", artist_display:"Jean-François Millet\nFrench, 1814–1875", date_display:"1857", medium_display:"Oil on canvas", place_of_origin:"France", image_file:"03_birth_of_venus.jpg", collection:"Musée d'Orsay, Paris", description_en:"The Gleaners depicts three peasant women gleaning a field after the harvest. Millet's dignified portrayal of rural labor was controversial at the time but is now celebrated as a masterpiece of Realism.", description_ko:"「이삭 줍는 사람들」은 추수가 끝난 들판에서 떨어진 이삭을 줍는 세 명의 농촌 여성을 묘사한 밀레의 걸작입니다. 당시에는 논란을 일으켰지만, 지금은 사실주의 미술의 대표작으로 높이 평가받습니다." },
+      { id:4, title:"The Great Wave off Kanagawa", title_ko:"가나가와 해변의 높은 파도", artist_display:"Katsushika Hokusai\nJapanese, 1760–1849", date_display:"c. 1831", medium_display:"Woodblock print", place_of_origin:"Japan", image_file:"04_great_wave.jpg", collection:"Metropolitan Museum of Art, New York", description_en:"The Great Wave is the most recognized work of Japanese art in the world. It depicts an enormous wave threatening boats off the coast of Kanagawa, with Mount Fuji visible in the background.", description_ko:"「가나가와 해변의 높은 파도」는 세계에서 가장 유명한 일본 미술 작품입니다. 거대한 파도가 배들을 위협하는 장면 뒤로 후지산이 보이며, 우키요에 판화의 정수를 보여줍니다." },
+      { id:5, title:"Mona Lisa", title_ko:"모나 리자", artist_display:"Leonardo da Vinci\nItalian, 1452–1519", date_display:"c. 1503–1519", medium_display:"Oil on poplar panel", place_of_origin:"Italy", image_file:"05_mona_lisa.jpg", collection:"Louvre Museum, Paris", description_en:"The Mona Lisa is perhaps the most famous painting in the world. Leonardo's mastery of sfumato technique creates the enigmatic smile that has captivated viewers for centuries.", description_ko:"「모나 리자」는 세계에서 가장 유명한 회화입니다. 레오나르도 다 빈치 특유의 스푸마토 기법으로 묘사된 신비로운 미소는 수백 년간 전 세계인을 매료시켜 왔습니다." },
+      { id:6, title:"The Persistence of Memory", title_ko:"기억의 지속", artist_display:"Salvador Dalí\nSpanish, 1904–1989", date_display:"1931", medium_display:"Oil on canvas", place_of_origin:"Spain", image_file:"06_persistence_memory.jpg", collection:"Museum of Modern Art, New York", description_en:"One of the most recognizable works of Surrealism, featuring melting pocket watches in a dreamlike landscape, meditating on the fluidity of time.", description_ko:"「기억의 지속」은 초현실주의를 대표하는 달리의 걸작입니다. 녹아 흘러내리는 시계들이 놓인 황량한 풍경은 시간의 유동성과 꿈의 세계를 표현합니다." },
+      { id:7, title:"Las Meninas", title_ko:"시녀들", artist_display:"Diego Velázquez\nSpanish, 1599–1660", date_display:"1656", medium_display:"Oil on canvas", place_of_origin:"Spain", image_file:"07_las_meninas.jpg", collection:"Museo del Prado, Madrid", description_en:"Las Meninas is widely regarded as one of the most important paintings in Western art history. Its complex composition challenges the relationship between viewer and subject.", description_ko:"「시녀들」은 서양 미술사에서 가장 중요한 작품 중 하나입니다. 그림 속 거울에 왕과 왕비가 비쳐 보이는 복잡한 구도로 관람자와 작품의 경계를 허무는 혁신적인 구성을 보여줍니다." },
+      { id:8, title:"Liberty Leading the People", title_ko:"민중을 이끄는 자유의 여신", artist_display:"Eugène Delacroix\nFrench, 1798–1863", date_display:"1830", medium_display:"Oil on canvas", place_of_origin:"France", image_file:"09_school_of_athens.jpg", collection:"Louvre Museum, Paris", description_en:"Liberty Leading the People commemorates the July Revolution of 1830. A bare-breasted woman personifying Liberty leads the people forward over barricades, holding the French tricolour aloft.", description_ko:"「민중을 이끄는 자유의 여신」은 1830년 7월 혁명을 기념하는 들라크루아의 걸작입니다. 자유를 상징하는 여신이 프랑스 삼색기를 높이 들고 바리케이드를 넘어 민중을 이끄는 역동적인 장면을 담았습니다." },
+      { id:9, title:"The Night Watch", title_ko:"야경", artist_display:"Rembrandt van Rijn\nDutch, 1606–1669", date_display:"1642", medium_display:"Oil on canvas", place_of_origin:"Netherlands", image_file:"10_night_watch.jpg", collection:"Rijksmuseum, Amsterdam", description_en:"The Night Watch is one of the most famous Dutch Golden Age paintings. Rembrandt's masterful use of light and shadow creates a dramatic scene of city guards.", description_ko:"「야경」은 네덜란드 황금시대를 대표하는 렘브란트의 걸작입니다. 빛과 그림자의 극적인 대비와 생동감 넘치는 인물 묘사로 당시 집단 초상화의 관습을 뛰어넘는 혁신적 구성을 보여줍니다." },
+      { id:10, title:"Guernica", title_ko:"게르니카", artist_display:"Pablo Picasso\nSpanish, 1881–1973", date_display:"1937", medium_display:"Oil on canvas", place_of_origin:"Spain", image_file:"11_guernica.jpg", collection:"Museo Reina Sofía, Madrid", description_en:"Guernica is a powerful anti-war statement created in response to the Nazi bombing of the Basque town of Guernica during the Spanish Civil War.", description_ko:"「게르니카」는 스페인 내전 당시 나치 독일 공군의 폭격에 분노한 피카소가 그린 강렬한 반전 작품입니다. 고통에 울부짖는 인물들이 흑백의 색채와 입체파 표현으로 전쟁의 참혹함을 고발합니다." },
+      { id:11, title:"The Last Supper", title_ko:"최후의 만찬", artist_display:"Leonardo da Vinci\nItalian, 1452–1519", date_display:"c. 1495–1498", medium_display:"Tempera on gesso", place_of_origin:"Italy", image_file:"12_last_supper.jpg", collection:"Santa Maria delle Grazie, Milan", description_en:"The Last Supper depicts the moment Jesus announces that one of his apostles will betray him. The dramatic reactions of the twelve apostles are rendered with extraordinary psychological depth.", description_ko:"「최후의 만찬」은 예수가 배신자가 있다고 선언하는 순간을 담은 레오나르도의 걸작입니다. 충격과 혼란에 휩싸인 각 제자들의 표정과 몸짓이 탁월한 심리 묘사로 생생하게 표현되어 있습니다." },
+      { id:12, title:"A Sunday on La Grande Jatte", title_ko:"그랑자트 섬의 일요일 오후", artist_display:"Georges Seurat\nFrench, 1859–1891", date_display:"1884–1886", medium_display:"Oil on canvas", place_of_origin:"France", image_file:"13_grande_jatte.jpg", collection:"Art Institute of Chicago", description_en:"The masterpiece of pointillism — tiny dots of color create a shimmering, luminous surface depicting Parisians relaxing by the Seine.", description_ko:"「그랑자트 섬의 일요일 오후」는 점묘법의 걸작입니다. 무수한 색점들로 만들어진 빛나는 색채와 고요한 분위기가 인상적이며, 신인상주의 탄생을 알리는 기념비적 작품입니다." },
+      { id:13, title:"Impression, Sunrise", title_ko:"인상, 해돋이", artist_display:"Claude Monet\nFrench, 1840–1926", date_display:"1872", medium_display:"Oil on canvas", place_of_origin:"France", image_file:"14_impression_sunrise.jpg", collection:"Musée Marmottan Monet, Paris", description_en:"This painting gave the Impressionist movement its name. The hazy harbor scene was initially criticized but came to define a revolutionary approach to painting.", description_ko:"「인상, 해돋이」는 이 그림에서 '인상주의'라는 명칭이 유래한 역사적 작품입니다. 르아브르 항구의 새벽 풍경을 빠른 붓질로 포착해 처음에는 비판받았지만, 회화의 혁명을 알리는 서막이 되었습니다." },
+      { id:14, title:"The Creation of Adam", title_ko:"아담의 창조", artist_display:"Michelangelo\nItalian, 1475–1564", date_display:"c. 1508–1512", medium_display:"Fresco", place_of_origin:"Italy", image_file:"15_creation_of_adam.jpg", collection:"Sistine Chapel, Vatican City", description_en:"Part of the Sistine Chapel ceiling, The Creation of Adam features the almost-touching fingers of God and Adam, one of the most iconic images in Western art.", description_ko:"「아담의 창조」는 시스티나 성당 천장화 중 가장 유명한 장면입니다. 하나님과 아담의 손이 닿을 듯 마주하는 장면은 서양 미술 역사상 가장 상징적인 이미지가 되었습니다." },
+      { id:15, title:"Arnolfini Portrait", title_ko:"아르놀피니 부부의 초상", artist_display:"Jan van Eyck\nFlemish, c. 1390–1441", date_display:"1434", medium_display:"Oil on oak panel", place_of_origin:"Belgium", image_file:"16_arnolfini.jpg", collection:"National Gallery, London", description_en:"The Arnolfini Portrait is a double portrait famous for its astonishing detail and symbolic richness. The convex mirror in the background reflects the entire room.", description_ko:"「아르놀피니 부부의 초상」은 놀라운 세밀함과 상징성으로 유명한 플랑드르 회화의 걸작입니다. 배경의 볼록 거울에 방 전체가 반영되어 있으며, 초기 유화 기법의 정수를 보여줍니다." },
+      { id:17, title:"The Scream", title_ko:"절규", artist_display:"Edvard Munch\nNorwegian, 1863–1944", date_display:"1893", medium_display:"Oil, tempera and pastel on cardboard", place_of_origin:"Norway", image_file:"19_scream.jpg", collection:"National Gallery, Oslo", description_en:"The Scream is one of the most iconic images in art history. The agonized figure against a swirling orange sky expresses a profound sense of existential dread and anxiety.", description_ko:"「절규」는 미술사에서 가장 상징적인 이미지 중 하나입니다. 소용돌이치는 붉은 하늘 아래 괴로움에 가득 찬 인물의 표정은 인간의 실존적 불안과 공포를 강렬하게 표현합니다." },
+      { id:18, title:"The Potato Eaters", title_ko:"감자 먹는 사람들", artist_display:"Vincent van Gogh\nDutch, 1853–1890", date_display:"1885", medium_display:"Oil on canvas", place_of_origin:"Netherlands", image_file:"22_potato_eaters.jpg", collection:"Van Gogh Museum, Amsterdam", description_en:"The Potato Eaters is Van Gogh's first major work, depicting peasants sharing a meal by lamplight. The dark, earthy tones reflect the harsh reality of rural life.", description_ko:"「감자 먹는 사람들」은 반 고흐의 첫 번째 주요 작품입니다. 램프 불빛 아래 식사를 나누는 농민들의 모습을 어둡고 거친 색채로 담아 농촌의 고된 삶을 사실적으로 표현했습니다." },
+      { id:19, title:"Olympia", title_ko:"올랭피아", artist_display:"Édouard Manet\nFrench, 1832–1883", date_display:"1863", medium_display:"Oil on canvas", place_of_origin:"France", image_file:"24_olympia.jpg", collection:"Musée d'Orsay, Paris", description_en:"Olympia caused a scandal when exhibited in 1865. Manet's direct and unidealized depiction of a nude woman challenged academic conventions and paved the way for modern art.", description_ko:"「올랭피아」는 1865년 전시 당시 엄청난 스캔들을 일으켰습니다. 마네의 직접적이고 이상화되지 않은 누드 표현은 학문적 관습에 도전하며 현대 미술의 길을 열었습니다." },
+      { id:20, title:"Venus of Urbino", title_ko:"우르비노의 비너스", artist_display:"Titian\nItalian, c. 1488–1576", date_display:"1534", medium_display:"Oil on canvas", place_of_origin:"Italy", image_file:"25_venus_urbino.jpg", collection:"Uffizi Gallery, Florence", description_en:"The Venus of Urbino is one of the most celebrated nudes in Western art. Titian's sensuous portrayal of the reclining Venus became the model for countless subsequent depictions of the female nude.", description_ko:"「우르비노의 비너스」는 서양 미술에서 가장 유명한 누드화 중 하나입니다. 티치아노의 관능적인 비너스 묘사는 이후 수많은 누드화의 원형이 되었습니다." },
+      { id:21, title:"The Milkmaid", title_ko:"우유 따르는 여인", artist_display:"Johannes Vermeer\nDutch, 1632–1675", date_display:"c. 1657–1658", medium_display:"Oil on canvas", place_of_origin:"Netherlands", image_file:"26_vermeer_milkmaid.jpg", collection:"Rijksmuseum, Amsterdam", description_en:"The Milkmaid depicts a kitchen maid carefully pouring milk. Vermeer's mastery of light transforms this everyday domestic scene into a timeless meditation on quiet labor.", description_ko:"「우유 따르는 여인」은 부엌 하녀가 우유를 따르는 장면을 묘사합니다. 베르메르 특유의 빛 표현이 일상적인 장면을 영원한 아름다움으로 승화시켰습니다." },
+      { id:22, title:"The Anatomy Lesson of Dr. Nicolaes Tulp", title_ko:"니콜라스 튈프 박사의 해부학 강의", artist_display:"Rembrandt van Rijn\nDutch, 1606–1669", date_display:"1632", medium_display:"Oil on canvas", place_of_origin:"Netherlands", image_file:"27_anatomy.jpg", collection:"Mauritshuis, The Hague", description_en:"This early masterpiece by Rembrandt depicts Dr. Nicolaes Tulp demonstrating the musculature of the arm to a group of surgeons, combining portraiture with scientific inquiry.", description_ko:"「니콜라스 튈프 박사의 해부학 강의」는 렘브란트의 초기 걸작입니다. 외과의사들에게 팔의 근육 구조를 시연하는 장면을 담아 초상화와 과학적 탐구를 결합한 혁신적인 작품입니다." },
+      { id:23, title:"Adam and Eve", title_ko:"아담과 이브", artist_display:"Peter Paul Rubens\nFlemish, 1577–1640", date_display:"c. 1628–1629", medium_display:"Oil on canvas", place_of_origin:"Belgium", image_file:"28_rubens_adam_eve.jpg", collection:"Museo del Prado, Madrid", description_en:"Rubens depicts Adam and Eve at the moment of temptation in the Garden of Eden, showcasing his characteristic use of rich color and dynamic composition.", description_ko:"「아담과 이브」는 에덴동산에서의 유혹 장면을 묘사한 루벤스의 작품입니다. 루벤스 특유의 풍부한 색채와 역동적인 구도가 돋보이는 바로크 미술의 걸작입니다." },
+      { id:24, title:"Starry Night Over the Rhône", title_ko:"론 강의 별이 빛나는 밤", artist_display:"Vincent van Gogh\nDutch, 1853–1890", date_display:"1888", medium_display:"Oil on canvas", place_of_origin:"Netherlands", image_file:"30_starry_night_rhone.jpg", collection:"Musée d'Orsay, Paris", description_en:"Painted a year before the more famous Starry Night, this work shows the gas lighting of Arles reflected in the Rhône River under a night sky filled with stars.", description_ko:"「론 강의 별이 빛나는 밤」은 유명한 별이 빛나는 밤보다 1년 앞서 그려진 작품입니다. 아를 시의 가스등이 론 강에 반사되는 야경을 별빛 가득한 하늘 아래 담아냈습니다." },
+    ];
+
+    // ── 오늘 날짜 시드로 10개 선택 ──
+    function getTodaysShuffle() {
       const today = new Date();
       const seed = today.getFullYear() * 10000 + (today.getMonth()+1) * 100 + today.getDate();
-      const page = (seed % 50) + 1;
-
-      const url = `https://api.artic.edu/api/v1/artworks?page=${page}&limit=10&fields=id,title,artist_display,date_display,image_id,medium_display,place_of_origin,description,short_description,dimensions&query[term][is_public_domain]=true`;
-
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('API error');
-      const data = await res.json();
-
-      // 이미지 있는 것만 필터
-      return data.data.filter(a => a.image_id);
+      const arr = [...ARTWORKS_DB];
+      let s = seed;
+      for (let i = arr.length - 1; i > 0; i--) {
+        s = (s * 1664525 + 1013904223) & 0xffffffff;
+        const j = Math.abs(s) % (i + 1);
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr.slice(0, 10); // 매일 10개
     }
 
-    // ── 이미지 URL 생성 ──
-    function imageUrl(imageId) {
-      return `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`;
+    async function fetchArtworks() {
+      return getTodaysShuffle();
+    }
+
+    // ── 이미지 URL: 로컬 images/ 폴더 ──
+    function imageUrl(artwork) {
+      return 'images/' + artwork.image_file;
+    }
+
+    // ── 재료/기법 한국어 변환 매핑 ──
+    const mediumKoMap = {
+      'oil on canvas': '캔버스에 유화',
+      'oil on panel': '패널에 유화',
+      'watercolor': '수채화',
+      'watercolor on paper': '종이에 수채화',
+      'pencil on paper': '종이에 연필',
+      'charcoal on paper': '종이에 목탄',
+      'ink on paper': '종이에 잉크',
+      'engraving': '판화 (에칭)',
+      'etching': '에칭',
+      'lithograph': '석판화',
+      'woodcut': '목판화',
+      'tempera on panel': '패널에 템페라',
+      'fresco': '프레스코',
+      'pastel on paper': '종이에 파스텔',
+      'gouache': '과슈',
+      'acrylic': '아크릴화',
+      'bronze': '청동',
+      'marble': '대리석',
+      'ceramic': '도자기',
+      'photograph': '사진',
+      'silver gelatin print': '젤라틴 실버 프린트',
+    };
+
+    function translateMedium(medium) {
+      if (!medium) return null;
+      const lower = medium.toLowerCase().split(';')[0].trim();
+      for (const [en, ko] of Object.entries(mediumKoMap)) {
+        if (lower.includes(en)) return ko;
+      }
+      return null; // 매핑 없으면 원문 사용
     }
 
     // ── 해설 텍스트 생성 ──
     function buildDescription(artwork, lang) {
-      const t = i18n[lang];
-      let desc = stripHtml(artwork.description || artwork.short_description || '');
+      const artist = artwork.artist_display ? artwork.artist_display.split('\n')[0].trim() : '';
+      const artistOrigin = artwork.artist_display && artwork.artist_display.includes('\n')
+        ? artwork.artist_display.split('\n').slice(1).join(', ').trim() : '';
+      const date = artwork.date_display || '';
+      const medium = artwork.medium_display || '';
+      const origin = artwork.place_of_origin || '';
+      const title = artwork.title || '';
+      const englishDesc = stripHtml(artwork.description || artwork.short_description || '');
 
-      if (!desc) {
-        // 기본 해설 자동 생성
-        const artist = artwork.artist_display ? artwork.artist_display.split('\n')[0] : '';
-        const date = artwork.date_display || '';
-        const medium = artwork.medium_display || '';
-        const origin = artwork.place_of_origin || '';
-
-        if (lang === 'ko') {
-          desc = `${artist ? `${artist}의 작품` : '작가 미상의 작품'}으로`;
-          if (date) desc += ` ${date}년경에 제작되었습니다.`;
-          if (medium) desc += ` ${medium}을(를) 사용한 이 작품은`;
-          if (origin) desc += ` ${origin} 출신 작가의 예술 세계를 담고 있습니다.`;
-          desc += ' 시카고 미술관(Art Institute of Chicago)이 소장하고 있는 공공 도메인 작품입니다.';
-        } else {
-          desc = `This work`;
-          if (artist) desc += ` by ${artist.split('\n')[0]}`;
-          if (date) desc += ` dates to around ${date}.`;
-          if (medium) desc += ` Created using ${medium},`;
-          if (origin) desc += ` it reflects the artistic tradition of ${origin}.`;
-          desc += ' This work is in the public domain and held in the collection of the Art Institute of Chicago.';
-        }
+      if (lang === 'en') {
+        // 영어는 API 원문 우선, 없으면 자동 생성
+        if (englishDesc) return englishDesc;
+        let desc = `"${title}"`;
+        if (artist) desc += ` is a work by ${artist}`;
+        if (artistOrigin) desc += ` (${artistOrigin})`;
+        if (date) desc += `, created around ${date}.`;
+        else desc += '.';
+        if (medium) desc += ` The work was made using ${medium}.`;
+        if (origin) desc += ` It originates from ${origin}.`;
+        desc += ' This piece is part of the public domain collection at the Art Institute of Chicago.';
+        return desc;
       }
 
-      return desc;
+      // ── 한국어: 메타데이터로 풍부한 해설 자동 생성 ──
+      const koMedium = translateMedium(medium);
+      const mediumText = koMedium || (medium ? medium.split(';')[0].trim() : '');
+
+      let parts = [];
+
+      // 1문장: 작품 소개
+      let intro = `「${title}」은(는)`;
+      if (artist) intro += ` ${artist}`;
+      if (artistOrigin) intro += `(${artistOrigin})`;
+      intro += '의 작품입니다.';
+      parts.push(intro);
+
+      // 2문장: 제작 시기 및 기법
+      let technique = '';
+      if (date && mediumText) {
+        technique = `${date}년경에 ${mediumText} 기법으로 제작되었으며,`;
+      } else if (date) {
+        technique = `${date}년경에 제작되었으며,`;
+      } else if (mediumText) {
+        technique = `${mediumText} 기법으로 제작된 이 작품은`;
+      }
+      if (technique) parts.push(technique);
+
+      // 3문장: 출신/지역 맥락
+      if (origin) {
+        parts.push(`${origin}의 예술적 전통과 감성을 담고 있습니다.`);
+      } else {
+        parts.push('당대의 미적 감각과 예술적 정수를 담고 있습니다.');
+      }
+
+      // 4문장: 소장 정보
+      parts.push('현재 미국 시카고 미술관(Art Institute of Chicago)에 소장된 공공 도메인 작품으로, 누구나 자유롭게 감상할 수 있습니다.');
+
+      return parts.join(' ');
     }
 
     // ── 작품 렌더링 ──
     function renderArtwork(artwork) {
       const t = i18n[currentLang];
-      const artInfo = document.getElementById('artInfo');
+      const infoBar = document.getElementById('infoBar');
       const errorBox = document.getElementById('errorBox');
       const imgSkeleton = document.getElementById('imgSkeleton');
       const artImage = document.getElementById('artImage');
-      const artCard = document.getElementById('artCard');
 
-      // 정보 숨기고 에러박스 닫기
-      artInfo.style.display = 'none';
+      // 초기화
+      infoBar.classList.add('hidden');
       errorBox.classList.remove('show');
       imgSkeleton.classList.remove('hidden');
       artImage.classList.add('hidden');
-      artCard.classList.remove('loaded');
 
       // TTS 중지
       stopTTS();
 
-      // 텍스트 채우기
-      document.getElementById('artOrigin').textContent = artwork.place_of_origin || 'Art Institute of Chicago';
-      document.getElementById('artTitle').textContent = artwork.title || '—';
+      // 제목
+      document.getElementById('artTitle').textContent =
+        (currentLang === 'ko' && artwork.title_ko) ? artwork.title_ko : (artwork.title || '—');
 
-      const artistName = artwork.artist_display ? artwork.artist_display.split('\n')[0] : (currentLang === 'ko' ? '작가 미상' : 'Unknown Artist');
+      // 작가
+      const artistName = artwork.artist_display
+        ? artwork.artist_display.split('\n')[0]
+        : (currentLang === 'ko' ? '작가 미상' : 'Unknown Artist');
       document.getElementById('artArtist').textContent = artistName;
+
+      // 날짜
       document.getElementById('artDate').textContent = artwork.date_display || '';
 
-      // 해설
-      const desc = buildDescription(artwork, currentLang);
-      const artDesc = document.getElementById('artDesc');
-      artDesc.textContent = desc || t.noDesc;
-
-      // 메타 태그
-      const metaTags = document.getElementById('metaTags');
-      metaTags.innerHTML = '';
+      // 재료
+      const medEl = document.getElementById('artMedium');
       if (artwork.medium_display) {
-        metaTags.innerHTML += `<span class="meta-tag"><strong>${t.metaMedium}:</strong> ${artwork.medium_display.split(';')[0]}</span>`;
+        const mediumText = currentLang === 'ko'
+          ? (translateMedium(artwork.medium_display) || artwork.medium_display.split(';')[0])
+          : artwork.medium_display.split(';')[0];
+        medEl.textContent = mediumText;
+        medEl.style.display = '';
+      } else {
+        medEl.style.display = 'none';
       }
-      metaTags.innerHTML += `<span class="meta-tag"><strong>${t.metaOrigin}:</strong> Art Institute of Chicago</span>`;
 
       // 카운터
       document.getElementById('navCounter').textContent = t.counter(currentIndex + 1, artworks.length);
 
-      // 이전/다음 버튼
+      // 네비 버튼 상태
       document.getElementById('prevBtn').disabled = currentIndex === 0;
       document.getElementById('nextBtn').disabled = currentIndex === artworks.length - 1;
 
-      // TTS 상태 초기화
-      document.getElementById('ttsStatus').textContent = t.ttsReady;
+      // TTS 초기화
       document.getElementById('ttsBtn').textContent = '▶';
+      document.getElementById('ttsBtn').classList.remove('playing');
       document.getElementById('ttsBar').style.width = '0%';
 
       // 이미지 로드
       const img = document.getElementById('artImage');
-      const newImg = new Image();
-      newImg.onload = () => {
-        img.src = newImg.src;
-        img.alt = artwork.title || '';
+      img.alt = artwork.title || '';
+      img.onload = () => {
         imgSkeleton.classList.add('hidden');
         img.classList.remove('hidden');
-        artInfo.style.display = 'block';
-        artCard.classList.add('loaded');
+        infoBar.classList.remove('hidden');
       };
-      newImg.onerror = () => {
+      img.onerror = () => {
         imgSkeleton.classList.add('hidden');
-        artInfo.style.display = 'block';
-        artCard.classList.add('loaded');
+        infoBar.classList.remove('hidden');
       };
-      newImg.src = imageUrl(artwork.image_id);
+      img.src = imageUrl(artwork);
     }
 
     // ── TTS ──
@@ -549,8 +557,10 @@
       if (window.speechSynthesis) window.speechSynthesis.cancel();
       ttsPlaying = false;
       clearInterval(ttsProgressTimer);
-      document.getElementById('ttsBtn').textContent = '▶';
-      document.getElementById('ttsBar').style.width = '0%';
+      const btn = document.getElementById('ttsBtn');
+      if (btn) { btn.textContent = '▶'; btn.classList.remove('playing'); }
+      const bar = document.getElementById('ttsBar');
+      if (bar) bar.style.width = '0%';
     }
 
     function startTTS() {
@@ -580,8 +590,7 @@
       ttsUtterance.onstart = () => {
         ttsPlaying = true;
         document.getElementById('ttsBtn').textContent = '⏸';
-        document.getElementById('ttsStatus').textContent = t.ttsPlaying;
-        // 진행바 시뮬레이션
+        document.getElementById('ttsBtn').classList.add('playing');
         ttsStartTime = Date.now();
         ttsDuration = (fullText.length / 5) * (1000 / ttsSpeed);
         clearInterval(ttsProgressTimer);
@@ -595,7 +604,7 @@
         ttsPlaying = false;
         clearInterval(ttsProgressTimer);
         document.getElementById('ttsBtn').textContent = '▶';
-        document.getElementById('ttsStatus').textContent = t.ttsDone;
+        document.getElementById('ttsBtn').classList.remove('playing');
         document.getElementById('ttsBar').style.width = '100%';
         setTimeout(() => document.getElementById('ttsBar').style.width = '0%', 1500);
       };
@@ -603,6 +612,7 @@
         ttsPlaying = false;
         clearInterval(ttsProgressTimer);
         document.getElementById('ttsBtn').textContent = '▶';
+        document.getElementById('ttsBtn').classList.remove('playing');
       };
 
       window.speechSynthesis.speak(ttsUtterance);
@@ -614,19 +624,8 @@
       document.getElementById('langToggle').textContent = t.langBtn;
       document.getElementById('backLabel').textContent = t.back;
       document.getElementById('dateBadge').textContent = `🎨 ${t.badgePrefix} · ${getTodayString(currentLang)}`;
-      document.getElementById('descLabel').textContent = t.descLabel;
-      document.getElementById('ttsTitle').textContent = t.ttsTitle;
-      document.getElementById('refreshLabel').textContent = t.refresh;
-      document.getElementById('prevLabel').textContent = t.prev;
-      document.getElementById('nextLabel').textContent = t.next;
-      if (!ttsPlaying) document.getElementById('ttsStatus').textContent = t.ttsReady;
-
-      // html lang
       document.documentElement.lang = currentLang;
-
-      // 현재 작품 재렌더링 (해설 언어 변경)
       if (artworks.length > 0) renderArtwork(artworks[currentIndex]);
-
       try { localStorage.setItem('daily_lang', currentLang); } catch(e) {}
     }
 
@@ -674,32 +673,18 @@
           ttsPlaying = false;
           clearInterval(ttsProgressTimer);
           document.getElementById('ttsBtn').textContent = '▶';
-          document.getElementById('ttsStatus').textContent = i18n[currentLang].ttsPaused;
+          document.getElementById('ttsBtn').classList.remove('playing');
         } else if (window.speechSynthesis.paused) {
           window.speechSynthesis.resume();
           ttsPlaying = true;
           document.getElementById('ttsBtn').textContent = '⏸';
-          document.getElementById('ttsStatus').textContent = i18n[currentLang].ttsPlaying;
-          // 진행바 재개
+          document.getElementById('ttsBtn').classList.add('playing');
           ttsProgressTimer = setInterval(() => {
             const elapsed = Date.now() - ttsStartTime;
             const pct = Math.min((elapsed / ttsDuration) * 100, 99);
             document.getElementById('ttsBar').style.width = pct + '%';
           }, 200);
         } else {
-          startTTS();
-        }
-      };
-
-      // TTS 속도
-      const speeds = [1.0, 1.25, 1.5, 0.75];
-      let speedIdx = 0;
-      document.getElementById('ttsSpeedBtn').onclick = () => {
-        speedIdx = (speedIdx + 1) % speeds.length;
-        ttsSpeed = speeds[speedIdx];
-        document.getElementById('ttsSpeedBtn').textContent = ttsSpeed + '×';
-        if (ttsPlaying) {
-          stopTTS();
           startTTS();
         }
       };
@@ -712,29 +697,14 @@
         if (currentIndex < artworks.length - 1) { currentIndex++; renderArtwork(artworks[currentIndex]); }
       };
 
-      // 다른 작품 보기 (새 페이지 랜덤)
-      document.getElementById('refreshBtn').onclick = async () => {
-        stopTTS();
-        const btn = document.getElementById('refreshBtn');
-        btn.classList.add('spinning');
-        btn.disabled = true;
-
-        try {
-          const page = Math.floor(Math.random() * 100) + 1;
-          const url = `https://api.artic.edu/api/v1/artworks?page=${page}&limit=10&fields=id,title,artist_display,date_display,image_id,medium_display,place_of_origin,description,short_description&query[term][is_public_domain]=true`;
-          const res = await fetch(url);
-          const data = await res.json();
-          const filtered = data.data.filter(a => a.image_id);
-          if (filtered.length) {
-            artworks = filtered;
-            currentIndex = 0;
-            renderArtwork(artworks[currentIndex]);
-          }
-        } catch(e) {}
-
-        btn.classList.remove('spinning');
-        btn.disabled = false;
-      };
+      // 키보드 좌우 화살표
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          if (currentIndex > 0) { currentIndex--; renderArtwork(artworks[currentIndex]); }
+        } else if (e.key === 'ArrowRight') {
+          if (currentIndex < artworks.length - 1) { currentIndex++; renderArtwork(artworks[currentIndex]); }
+        }
+      });
     }
 
     // ── 시작 ──
