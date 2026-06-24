@@ -19,43 +19,62 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 이미지 다운로드
+        env:
+          IMAGES: ${{ github.event.inputs.images }}
         run: |
           mkdir -p images
-          echo "${{ github.event.inputs.images }}" | while IFS='=' read -r fname url; do
-            fname=$(echo "$fname" | tr -d ' ')
-            url=$(echo "$url" | tr -d ' ')
-            if [ -n "$fname" ] && [ -n "$url" ]; then
-              echo "다운로드: $fname"
-              curl -L -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36" \
-                   -H "Referer: https://en.wikipedia.org/" \
-                   -o "images/$fname" "$url"
-              size=$(wc -c < "images/$fname")
-              echo "  -> ${size} bytes"
-            fi
-          done
+          python3 << 'PYEOF'
+import urllib.request, os, time
+
+raw = os.environ.get('IMAGES', '')
+headers = {
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+  'Referer': 'https://en.wikipedia.org/',
+}
+
+for line in raw.strip().splitlines():
+    line = line.strip()
+    if '=' not in line:
+        continue
+    fname, url = line.split('=', 1)
+    fname = fname.strip()
+    url = url.strip()
+    if not fname or not url:
+        continue
+    try:
+        time.sleep(1)
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = r.read()
+        with open(f'images/{fname}', 'wb') as f:
+            f.write(data)
+        print(f'OK {fname}: {len(data)//1024}KB')
+    except Exception as e:
+        print(f'ERR {fname}: {e}')
+PYEOF
 
       - name: 이미지 최적화
         run: |
           pip install Pillow -q
           python3 -c "
-          import os
-          from PIL import Image
-          img_dir = 'images'
-          for fname in os.listdir(img_dir):
-              if not fname.endswith('.jpg') and not fname.endswith('.png'):
-                  continue
-              path = os.path.join(img_dir, fname)
-              size = os.path.getsize(path)
-              if size > 2 * 1024 * 1024:
-                  try:
-                      img = Image.open(path)
-                      img.thumbnail((1200, 1200))
-                      img.save(path, quality=85, optimize=True)
-                      new_size = os.path.getsize(path)
-                      print(f'최적화: {fname} {size//1024}KB -> {new_size//1024}KB')
-                  except Exception as e:
-                      print(f'스킵: {fname} ({e})')
-          "
+import os
+from PIL import Image
+img_dir = 'images'
+for fname in os.listdir(img_dir):
+    if not fname.endswith('.jpg') and not fname.endswith('.png'):
+        continue
+    path = os.path.join(img_dir, fname)
+    size = os.path.getsize(path)
+    if size > 2 * 1024 * 1024:
+        try:
+            img = Image.open(path)
+            img.thumbnail((1200, 1200))
+            img.save(path, quality=85, optimize=True)
+            new_size = os.path.getsize(path)
+            print(f'최적화: {fname} {size//1024}KB -> {new_size//1024}KB')
+        except Exception as e:
+            print(f'스킵: {fname} ({e})')
+"
 
       - name: GitHub에 커밋
         run: |
