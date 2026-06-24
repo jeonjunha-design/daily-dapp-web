@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       images:
-        description: "이미지 목록 (파일명=URL 형식, 줄바꿈으로 구분)"
+        description: "이미지 목록 (파일명=URL, 줄바꿈 구분)"
         required: true
         type: string
 
@@ -15,32 +15,28 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: 스크립트 작성
-        run: |
-          cat > /tmp/dl.py << PYEOF
-import urllib.request, os, time, sys
-headers = {"User-Agent": "Mozilla/5.0", "Referer": "https://en.wikipedia.org/"}
-os.makedirs("images", exist_ok=True)
-for line in sys.stdin.read().strip().splitlines():
-    if "=" not in line: continue
-    fname, url = line.split("=", 1)
-    fname, url = fname.strip(), url.strip()
-    if not fname or not url: continue
-    try:
-        time.sleep(1)
-        req = urllib.request.Request(url, headers=headers)
-        data = urllib.request.urlopen(req, timeout=15).read()
-        open("images/" + fname, "wb").write(data)
-        print("OK " + fname + ": " + str(len(data)//1024) + "KB")
-    except Exception as e:
-        print("ERR " + fname + ": " + str(e))
-PYEOF
-      - name: 다운로드
+
+      - name: 다운로드 및 커밋
         env:
           IMAGES: ${{ github.event.inputs.images }}
-        run: echo "$IMAGES" | python3 /tmp/dl.py
-      - name: 커밋
         run: |
+          mkdir -p images
+          python3 - <<EOF
+import urllib.request, os, time
+imgs = os.environ.get("IMAGES","")
+hdr = {"User-Agent":"Mozilla/5.0","Referer":"https://en.wikipedia.org/"}
+for line in imgs.strip().splitlines():
+    if "=" not in line: continue
+    fname,url = line.split("=",1)
+    fname,url = fname.strip(),url.strip()
+    try:
+        time.sleep(1)
+        data = urllib.request.urlopen(urllib.request.Request(url,headers=hdr),timeout=15).read()
+        open("images/"+fname,"wb").write(data)
+        print("OK "+fname+" "+str(len(data)//1024)+"KB")
+    except Exception as e:
+        print("ERR "+fname+" "+str(e))
+EOF
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add images/
