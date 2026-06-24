@@ -23,35 +23,32 @@ jobs:
           IMAGES: ${{ github.event.inputs.images }}
         run: |
           mkdir -p images
-          python3 << 'PYEOF'
+          echo "$IMAGES" > /tmp/imglist.txt
+          python3 /tmp/dl.py
+
+      - name: 다운로드 스크립트 생성 및 실행
+        run: |
+          cat > /tmp/dl.py << 'PY'
 import urllib.request, os, time
-
-raw = os.environ.get('IMAGES', '')
-headers = {
-  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
-  'Referer': 'https://en.wikipedia.org/',
-}
-
-for line in raw.strip().splitlines():
+headers = {'User-Agent': 'Mozilla/5.0', 'Referer': 'https://en.wikipedia.org/'}
+with open('/tmp/imglist.txt') as f:
+    lines = f.read().strip().splitlines()
+for line in lines:
     line = line.strip()
-    if '=' not in line:
-        continue
+    if '=' not in line: continue
     fname, url = line.split('=', 1)
-    fname = fname.strip()
-    url = url.strip()
-    if not fname or not url:
-        continue
+    fname, url = fname.strip(), url.strip()
+    if not fname or not url: continue
     try:
         time.sleep(1)
         req = urllib.request.Request(url, headers=headers)
         with urllib.request.urlopen(req, timeout=15) as r:
             data = r.read()
-        with open(f'images/{fname}', 'wb') as f:
-            f.write(data)
+        open(f'images/{fname}', 'wb').write(data)
         print(f'OK {fname}: {len(data)//1024}KB')
     except Exception as e:
         print(f'ERR {fname}: {e}')
-PYEOF
+PY
 
       - name: 이미지 최적화
         run: |
@@ -59,21 +56,14 @@ PYEOF
           python3 -c "
 import os
 from PIL import Image
-img_dir = 'images'
-for fname in os.listdir(img_dir):
-    if not fname.endswith('.jpg') and not fname.endswith('.png'):
-        continue
-    path = os.path.join(img_dir, fname)
-    size = os.path.getsize(path)
-    if size > 2 * 1024 * 1024:
-        try:
-            img = Image.open(path)
-            img.thumbnail((1200, 1200))
-            img.save(path, quality=85, optimize=True)
-            new_size = os.path.getsize(path)
-            print(f'최적화: {fname} {size//1024}KB -> {new_size//1024}KB')
-        except Exception as e:
-            print(f'스킵: {fname} ({e})')
+for fname in os.listdir('images'):
+    if not fname.endswith('.jpg'): continue
+    path = f'images/{fname}'
+    if os.path.getsize(path) > 2*1024*1024:
+        img = Image.open(path)
+        img.thumbnail((1200,1200))
+        img.save(path, quality=85, optimize=True)
+        print(f'최적화: {fname}')
 "
 
       - name: GitHub에 커밋
@@ -83,3 +73,4 @@ for fname in os.listdir(img_dir):
           git add images/
           git diff --staged --quiet || git commit -m "이미지 자동 추가 $(date '+%Y-%m-%d')"
           git push
+
