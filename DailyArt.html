@@ -530,9 +530,9 @@
       // 카운터
       document.getElementById('navCounter').textContent = t.counter(currentIndex + 1, artworks.length);
 
-      // 네비 버튼 상태
-      document.getElementById('prevBtn').disabled = currentIndex === 0;
-      document.getElementById('nextBtn').disabled = currentIndex === artworks.length - 1;
+      // 네비 버튼 항상 활성화 (순환)
+      document.getElementById('prevBtn').disabled = false;
+      document.getElementById('nextBtn').disabled = false;
 
       // TTS 초기화
       document.getElementById('ttsBtn').textContent = '▶';
@@ -577,36 +577,62 @@
       if (bar) bar.style.width = '0%';
     }
 
-    function startTTS() {
-      if (!window.speechSynthesis) {
-        document.getElementById('ttsStatus').textContent = i18n[currentLang].ttsNoSupport;
-        return;
+    // ── 최적 한국어 목소리 찾기 ──
+    let bestVoice = null;
+    function findBestVoice(lang) {
+      const voices = window.speechSynthesis.getVoices();
+      const langCode = lang === 'ko' ? 'ko' : 'en';
+      
+      // 우선순위: Google > Microsoft > 기타
+      const preferred = voices.filter(v => v.lang.startsWith(langCode));
+      const google = preferred.find(v => v.name.includes('Google'));
+      const microsoft = preferred.find(v => v.name.includes('Microsoft'));
+      return google || microsoft || preferred[0] || null;
+    }
+
+    // ── 텍스트 자연스럽게 전처리 ──
+    function preprocessText(text, lang) {
+      if (lang === 'ko') {
+        return text
+          .replace(/「/g, '').replace(/」/g, '')   // 낫표 제거
+          .replace(/\(/g, ', ').replace(/\)/g, ', ') // 괄호 → 쉼표
+          .replace(/\s+/g, ' ')
+          .trim();
       }
+      return text.replace(/\s+/g, ' ').trim();
+    }
+
+    function startTTS() {
+      if (!window.speechSynthesis) return;
 
       const artwork = artworks[currentIndex];
       const desc = buildDescription(artwork, currentLang);
-      const titleText = artwork.title || '';
+      const titleText = (currentLang === 'ko' && artwork.title_ko) ? artwork.title_ko : (artwork.title || '');
       const artistText = artwork.artist_display ? artwork.artist_display.split('\n')[0] : '';
 
-      let fullText = '';
-      if (currentLang === 'ko') {
-        fullText = `${titleText}. ${artistText}. ${desc}`;
-      } else {
-        fullText = `${titleText}, by ${artistText}. ${desc}`;
-      }
+      const rawText = currentLang === 'ko'
+        ? `${titleText}. ${artistText}. ${desc}`
+        : `${titleText}, by ${artistText}. ${desc}`;
+
+      const fullText = preprocessText(rawText, currentLang);
 
       window.speechSynthesis.cancel();
       ttsUtterance = new SpeechSynthesisUtterance(fullText);
       ttsUtterance.lang = currentLang === 'ko' ? 'ko-KR' : 'en-US';
-      ttsUtterance.rate = ttsSpeed;
+      ttsUtterance.rate = currentLang === 'ko' ? 0.9 : 0.95; // 한국어는 살짝 느리게
+      ttsUtterance.pitch = 1.0;
+      ttsUtterance.volume = 1.0;
 
-      const t = i18n[currentLang];
+      // 최적 목소리 적용
+      const voice = findBestVoice(currentLang);
+      if (voice) ttsUtterance.voice = voice;
+
       ttsUtterance.onstart = () => {
         ttsPlaying = true;
         document.getElementById('ttsBtn').textContent = '⏸';
         document.getElementById('ttsBtn').classList.add('playing');
         ttsStartTime = Date.now();
-        ttsDuration = (fullText.length / 5) * (1000 / ttsSpeed);
+        ttsDuration = (fullText.length / 4.5) * (1000 / (currentLang === 'ko' ? 0.9 : 0.95));
         clearInterval(ttsProgressTimer);
         ttsProgressTimer = setInterval(() => {
           const elapsed = Date.now() - ttsStartTime;
@@ -614,6 +640,7 @@
           document.getElementById('ttsBar').style.width = pct + '%';
         }, 200);
       };
+
       ttsUtterance.onend = () => {
         ttsPlaying = false;
         clearInterval(ttsProgressTimer);
@@ -622,14 +649,12 @@
         document.getElementById('ttsBar').style.width = '100%';
         setTimeout(() => {
           document.getElementById('ttsBar').style.width = '0%';
-          // 다음 작품으로 자동 이동
-          if (currentIndex < artworks.length - 1) {
-            currentIndex++;
-            renderArtwork(artworks[currentIndex]);
-            startTTS();
-          }
+          currentIndex = (currentIndex + 1) % artworks.length;
+          renderArtwork(artworks[currentIndex]);
+          setTimeout(() => startTTS(), 1000);
         }, 800);
       };
+
       ttsUtterance.onerror = () => {
         ttsPlaying = false;
         clearInterval(ttsProgressTimer);
@@ -637,7 +662,16 @@
         document.getElementById('ttsBtn').classList.remove('playing');
       };
 
-      window.speechSynthesis.speak(ttsUtterance);
+      // 목소리 로드 대기 후 재생
+      if (window.speechSynthesis.getVoices().length === 0) {
+        window.speechSynthesis.onvoiceschanged = () => {
+          const voice = findBestVoice(currentLang);
+          if (voice) ttsUtterance.voice = voice;
+          window.speechSynthesis.speak(ttsUtterance);
+        };
+      } else {
+        window.speechSynthesis.speak(ttsUtterance);
+      }
     }
 
     // ── UI 텍스트 갱신 ──
@@ -711,20 +745,36 @@
         }
       };
 
-      // 이전/다음
+      // 이전/다음 (순환, TTS 자동 재시작)
       document.getElementById('prevBtn').onclick = () => {
-        if (currentIndex > 0) { currentIndex--; renderArtwork(artworks[currentIndex]); }
+        const wasPlaying = ttsPlaying;
+        stopTTS();
+        currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+        renderArtwork(artworks[currentIndex]);
+        if (wasPlaying) setTimeout(() => startTTS(), 1000);
       };
       document.getElementById('nextBtn').onclick = () => {
-        if (currentIndex < artworks.length - 1) { currentIndex++; renderArtwork(artworks[currentIndex]); }
+        const wasPlaying = ttsPlaying;
+        stopTTS();
+        currentIndex = (currentIndex + 1) % artworks.length;
+        renderArtwork(artworks[currentIndex]);
+        if (wasPlaying) setTimeout(() => startTTS(), 1000);
       };
 
-      // 키보드 좌우 화살표
+      // 키보드 좌우 화살표 (순환, TTS 자동 재시작)
       document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
-          if (currentIndex > 0) { currentIndex--; renderArtwork(artworks[currentIndex]); }
+          const wasPlaying = ttsPlaying;
+          stopTTS();
+          currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+          renderArtwork(artworks[currentIndex]);
+          if (wasPlaying) setTimeout(() => startTTS(), 1000);
         } else if (e.key === 'ArrowRight') {
-          if (currentIndex < artworks.length - 1) { currentIndex++; renderArtwork(artworks[currentIndex]); }
+          const wasPlaying = ttsPlaying;
+          stopTTS();
+          currentIndex = (currentIndex + 1) % artworks.length;
+          renderArtwork(artworks[currentIndex]);
+          if (wasPlaying) setTimeout(() => startTTS(), 1000);
         }
       });
     }

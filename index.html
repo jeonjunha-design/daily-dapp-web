@@ -24,6 +24,7 @@
       --color-mint: #67e8f9;    /* AI 상식 */
       --color-gold: #fde047;    /* 오늘의 영어 */
       --color-orange: #ff9838;  /* 오늘의 천자문 */
+      --color-green: #34d399;   /* 오늘의 미술 작품 */
     }
 
     html { scroll-behavior: smooth; }
@@ -171,6 +172,12 @@
     }
 
     .card:hover .card-icon { transform: scale(1.12) rotate(4deg); }
+
+    .card-art .card-label, .card-art .card-action { color: var(--color-green); }
+    .card-art:hover {
+      border-color: var(--color-green); transform: translateY(-6px);
+      background: rgba(52, 211, 153, 0.06); box-shadow: 0 12px 32px rgba(52, 211, 153, 0.18);
+    }
     .card:hover .card-action { gap: 10px; }
 
     /* ── 하단 푸터 ── */
@@ -263,7 +270,7 @@
 
   <section class="services" id="apps">
     <div class="services-container">
-      <h2 id="servicesTitle" class="services-title">매일 아침 배달되는 4가지 라이프 성장 가이드</h2>
+      <h2 id="servicesTitle" class="services-title">매일 아침 배달되는 5가지 라이프 성장 가이드</h2>
       
       <div class="grid">
         <a href="DailyHoroscope.html?lang=ko" id="card1Link" class="card card-fortune">
@@ -313,6 +320,18 @@
           </div>
           <div id="card4Action" class="card-action">천자문 익히러 가기 ➔</div>
         </a>
+
+        <a href="DailyArt.html?lang=ko" id="card5Link" class="card card-art">
+          <div class="card-top">
+            <div class="card-info">
+              <span class="card-label">ART OF THE DAY</span>
+              <h3 id="card5Title">오늘의 미술 작품</h3>
+              <p id="card5Desc">매일 하나의 명화와 함께 예술적 감수성을 키워가는 나만의 미술관. 작품 해설과 화가의 이야기로 더 깊이 감상하세요.</p>
+            </div>
+            <div class="card-icon">🖼️</div>
+          </div>
+          <div id="card5Action" class="card-action">오늘의 작품 감상하기 ➔</div>
+        </a>
       </div>
     </div>
   </section>
@@ -354,11 +373,12 @@
         heroCta: "Daily-Dapp 시작하기",
         visionTitle: "우리의 내일은 매일의 작은 습관에서 시작됩니다.",
         visionDesc: "Daily-Dapp은 거창한 변화보다 <strong>'매일 조금씩 쌓이는 긍정적인 경험'</strong>의 힘을 믿습니다. 하루를 여는 설레는 운세부터 트렌디한 AI 상식, 일상의 깊이를 더하는 영어와 천자문까지. 당신이 지치지 않고 <strong>나날이 발전할 수 있도록</strong> 가장 든든한 페이스메이커가 되어 드릴게요.",
-        servicesTitle: "매일 아침 배달되는 4가지 라이프 성장 가이드",
+        servicesTitle: "매일 아침 배달되는 5가지 라이프 성장 가이드",
         card1Title: "오늘의 별자리 운세", card1Desc: "오늘 하루를 즐겁고 활기차게 시작하는 나만의 맞춤형 우주 오로라 성간 운세 레터", card1Action: "운세 확인하러 가기 ➔",
         card2Title: "오늘의 AI 상식", card2Desc: "빠르게 변하는 인공지능 지식과 트렌드를 뒤처지지 않게! 쉽고 명확한 4단계 퀴즈 학습", card2Action: "AI 상식 퀴즈 풀러 가기 ➔",
         card3Title: "오늘의 English", card3Desc: "부담 없이 하루 한 문장, 원어민 발음 사운드 및 입체 오디오 가이드로 마스터하는 어학 코스", card3Action: "영어 카드 열어보기 ➔",
         card4Title: "오늘의 千字文", card4Desc: "하루 한 글자, 한지 격자 문양 위 나만의 한자 인장을 차곡차곡 채우며 넓히는 인문학 교양", card4Action: "천자문 익히러 가기 ➔",
+        card5Title: "오늘의 미술 작품", card5Desc: "매일 하나의 명화와 함께 예술적 감수성을 키워가는 나만의 미술관. 작품 해설과 화가의 이야기로 더 깊이 감상하세요.", card5Action: "오늘의 작품 감상하기 ➔",
         footerLink1: "이용약관", footerLink2: "개인정보처리방침", footerLink3: "고객지원",
         footerInfo: "<strong>Daily-Dapp Co.</strong> | 대표자: 전준하 | 이메일: jeonjunha@gmail.com",
         footerCopy: "&copy; 2026 Daily-Dapp. All rights reserved. 매일 1%의 꾸준함이 만드는 완벽한 변화.",
@@ -376,11 +396,12 @@
         heroCta: "Get Started",
         visionTitle: "Our tomorrow begins with small daily habits.",
         visionDesc: "Daily-Dapp believes in the power of <strong>'positive experiences accumulated little by little every day'</strong> rather than grandiose changes. From exciting fortunes that open your day, trendy AI knowledge, to English and Qianziwen that add depth to your daily life. We will be your most reliable pacemaker so you can grow day by day without getting tired.",
-        servicesTitle: "4 Life Growth Guides Delivered Every Morning",
+        servicesTitle: "5 Life Growth Guides Delivered Every Morning",
         card1Title: "Daily Horoscope", card1Desc: "Your personalized cosmic interstellar fortune letter to start your day with joy and vitality.", card1Action: "Check Fortune ➔",
         card2Title: "Daily AI Trivia", card2Desc: "Stay ahead of fast-changing artificial intelligence trends! Simple and clear 4-step quiz learning.", card2Action: "Play AI Quiz ➔",
         card3Title: "Daily English", card3Desc: "Master a sentence a day effortlessly with native pronunciation and comprehensive audio guides.", card3Action: "Open English Card ➔",
         card4Title: "Daily Thousand-Character Classic", card4Desc: "Broaden your humanities literacy, stamping your own Hanja seal step-by-step on a traditional grid pattern.", card4Action: "Learn Qianziwen ➔",
+        card5Title: "Art of the Day", card5Desc: "Cultivate your artistic sensibility with one masterpiece every day. Dive deeper with artwork commentary and the story behind the artist.", card5Action: "View Today's Artwork ➔",
         footerLink1: "Terms of Service", footerLink2: "Privacy Policy", footerLink3: "Support",
         footerInfo: "<strong>Daily-Dapp Co.</strong> | CEO: Junha Jeon | Email: jeonjunha@gmail.com",
         footerCopy: "&copy; 2026 Daily-Dapp. All rights reserved. Perfect change made by 1% consistency every day.",
@@ -442,6 +463,10 @@
         safeSet('card4Desc', 'card4Desc');
         safeSet('card4Action', 'card4Action');
         
+        safeSet('card5Title', 'card5Title');
+        safeSet('card5Desc', 'card5Desc');
+        safeSet('card5Action', 'card5Action');
+        
         safeSet('footerLink1', 'footerLink1');
         safeSet('footerLink2', 'footerLink2');
         safeSet('footerLink3', 'footerLink3');
@@ -449,8 +474,8 @@
         safeSet('footerCopy', 'footerCopy', true);
 
         // 카드 하이퍼링크 주소 동적 최적화 연동
-        const linkIds = ['card1Link', 'card2Link', 'card3Link', 'card4Link'];
-        const targetFiles = ['DailyHoroscope.html', 'AI-3.html', 'Eng11.html', 'Hanja1000.html'];
+        const linkIds = ['card1Link', 'card2Link', 'card3Link', 'card4Link', 'card5Link'];
+        const targetFiles = ['DailyHoroscope.html', 'AI-3.html', 'Eng11.html', 'Hanja1000.html', 'DailyArt.html'];
         linkIds.forEach((id, idx) => {
           const linkEl = document.getElementById(id);
           if (linkEl) linkEl.href = targetFiles[idx] + "?lang=" + lang;
