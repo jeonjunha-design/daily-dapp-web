@@ -298,7 +298,7 @@
       <!-- TTS 진행바 -->
       <div class="tts-progress"><div class="tts-progress-bar" id="ttsBar"></div></div>
 
-      <!-- 제목 행: [제목] [🔊] [‹ 1/15 ›] -->
+      <!-- 제목 행: [제목] [🔊] [이전 다음] -->
       <div class="info-row">
         <div class="artwork-title" id="artTitle">—</div>
         <button class="tts-icon-btn" id="ttsBtn" title="음성 해설">▶</button>
@@ -1140,8 +1140,6 @@
         medEl.style.display = 'none';
       }
 
-      // 카운터
-
       // 네비 버튼 항상 활성화 (순환)
       document.getElementById('prevBtn').disabled = false;
       document.getElementById('nextBtn').disabled = false;
@@ -1156,7 +1154,6 @@
       img.alt = artwork.title || '';
       const newSrc = imageUrl(artwork);
 
-      // 같은 이미지면 스킵
       if (img.src.endsWith(newSrc) || img.src === newSrc) {
         imgSkeleton.classList.add('hidden');
         img.classList.remove('hidden');
@@ -1170,9 +1167,10 @@
         imgSkeleton.classList.add('hidden');
         img.classList.remove('hidden');
         infoBar.classList.remove('hidden');
-        // 전체화면 모달도 업데이트
+
         const fsModal = document.getElementById('fullscreenModal');
-        if (fsModal && fsModal.classList.contains('show')) {
+        const isFullscreen = fsModal && fsModal.classList.contains('show');
+        if (isFullscreen) {
           document.getElementById('fullscreenImg').src = newSrc;
           const title = (currentLang === 'ko' && artwork.title_ko) ? artwork.title_ko : (artwork.title || '');
           const artist = artwork.artist_display ? artwork.artist_display.split('\n')[0] : '';
@@ -1183,7 +1181,8 @@
           document.getElementById('fsTitle').textContent = title;
           document.getElementById('fsMeta').textContent = [artist, date].filter(Boolean).join(' · ');
           document.getElementById('fsDesc').textContent = desc;
-        }      };
+        }
+      };
       preloader.onerror = () => {
         imgSkeleton.classList.add('hidden');
         infoBar.classList.remove('hidden');
@@ -1280,8 +1279,8 @@
         document.getElementById('ttsBar').style.width = '100%';
         setTimeout(() => {
           document.getElementById('ttsBar').style.width = '0%';
-          currentIndex = (currentIndex + 1) % artworks.length;
-          renderArtwork(artworks[currentIndex]);
+          const art = navigateOriented(1);
+          renderArtwork(art);
           setTimeout(() => startTTS(), 1000);
         }, 800);
       };
@@ -1334,6 +1333,8 @@
         currentIndex = 0;
         renderArtwork(artworks[currentIndex]);
         document.getElementById('dateBadge').textContent = `🎨 ${t.badgePrefix} · ${getTodayString(currentLang)}`;
+        // 백그라운드에서 방향별 풀 구축
+        setTimeout(() => buildOrientationPools(), 1000);
       } catch(err) {
         document.getElementById('imgSkeleton').classList.add('hidden');
         document.getElementById('errorBox').classList.add('show');
@@ -1376,19 +1377,19 @@
         }
       };
 
-      // 이전/다음 (순환, TTS 자동 재시작)
+      // 이전/다음 (방향별 풀 사용)
       document.getElementById('prevBtn').onclick = () => {
         const wasPlaying = ttsPlaying;
         stopTTS();
-        currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
-        renderArtwork(artworks[currentIndex]);
+        const art = navigateOriented(-1);
+        renderArtwork(art);
         if (wasPlaying) setTimeout(() => startTTS(), 1000);
       };
       document.getElementById('nextBtn').onclick = () => {
         const wasPlaying = ttsPlaying;
         stopTTS();
-        currentIndex = (currentIndex + 1) % artworks.length;
-        renderArtwork(artworks[currentIndex]);
+        const art = navigateOriented(1);
+        renderArtwork(art);
         if (wasPlaying) setTimeout(() => startTTS(), 1000);
       };
 
@@ -1436,15 +1437,15 @@
 
       function fullscreenNext() {
         stopTTS();
-        currentIndex = (currentIndex + 1) % artworks.length;
-        renderArtwork(artworks[currentIndex]);
+        const art = navigateOriented(1);
+        renderArtwork(art);
         setTimeout(() => startTTS(), 1000);
       }
 
       function fullscreenPrev() {
         stopTTS();
-        currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
-        renderArtwork(artworks[currentIndex]);
+        const art = navigateOriented(-1);
+        renderArtwork(art);
         setTimeout(() => startTTS(), 1000);
       }
 
@@ -1496,14 +1497,14 @@
         if (e.key === 'ArrowLeft') {
           const wasPlaying = ttsPlaying;
           stopTTS();
-          currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
-          renderArtwork(artworks[currentIndex]);
+          const art = navigateOriented(-1);
+          renderArtwork(art);
           if (wasPlaying || isFullscreen) setTimeout(() => startTTS(), 1000);
         } else if (e.key === 'ArrowRight') {
           const wasPlaying = ttsPlaying;
           stopTTS();
-          currentIndex = (currentIndex + 1) % artworks.length;
-          renderArtwork(artworks[currentIndex]);
+          const art = navigateOriented(1);
+          renderArtwork(art);
           if (wasPlaying || isFullscreen) setTimeout(() => startTTS(), 1000);
         }
       });
@@ -1514,6 +1515,111 @@
       document.addEventListener('DOMContentLoaded', () => { bindEvents(); init(); });
     } else {
       bindEvents(); init();
+    }
+
+    // ── 방향별 네비게이션 ──
+    function navigateOriented(dir) {
+      const isMobile = window.innerWidth <= 900 || window.innerHeight <= 900;
+      const isFullscreen = document.getElementById('fullscreenModal').classList.contains('show');
+      if (!isMobile || isFullscreen) {
+        currentIndex = (currentIndex + dir + artworks.length) % artworks.length;
+        return artworks[currentIndex];
+      }
+      const ori = getScreenOrientation();
+      if (ori === 'portrait' && portraitPool.length > 0) {
+        portraitIndex = (portraitIndex + dir + portraitPool.length) % portraitPool.length;
+        return portraitPool[portraitIndex];
+      } else if (ori === 'landscape' && landscapePool.length > 0) {
+        landscapeIndex = (landscapeIndex + dir + landscapePool.length) % landscapePool.length;
+        return landscapePool[landscapeIndex];
+      }
+      currentIndex = (currentIndex + dir + artworks.length) % artworks.length;
+      return artworks[currentIndex];
+    }
+
+    // 화면 방향 바뀌면 첫 작품부터
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        portraitIndex = 0;
+        landscapeIndex = 0;
+        const art = navigateOriented(0);
+        renderArtwork(art);
+      }, 300);
+    });
+    let portraitPool = [];   // 세로 이미지
+    let landscapePool = []; // 가로 이미지
+    let portraitIndex = 0;
+    let landscapeIndex = 0;
+    let orientationMode = null; // 'portrait' | 'landscape' | null
+
+    // 이미지 비율 캐시
+    const ratioCache = {};
+
+    function getScreenOrientation() {
+      return window.innerHeight > window.innerWidth ? 'portrait' : 'landscape';
+    }
+
+    // 현재 방향에 맞는 풀에서 작품 가져오기
+    function getOrientedArtwork() {
+      const ori = getScreenOrientation();
+      const isMobile = window.innerWidth <= 900 || window.innerHeight <= 900;
+      if (!isMobile) return artworks[currentIndex];
+
+      if (ori === 'portrait') {
+        if (portraitPool.length === 0) return artworks[currentIndex];
+        const art = portraitPool[portraitIndex % portraitPool.length];
+        portraitIndex++;
+        return art;
+      } else {
+        if (landscapePool.length === 0) return artworks[currentIndex];
+        const art = landscapePool[landscapeIndex % landscapePool.length];
+        landscapeIndex++;
+        return art;
+      }
+    }
+
+    // 이미지 비율 감지 후 풀에 분류
+    function classifyImage(artwork, callback) {
+      const src = imageUrl(artwork);
+      if (ratioCache[src] !== undefined) {
+        callback(ratioCache[src]);
+        return;
+      }
+      const img = new Image();
+      img.onload = () => {
+        const isPortrait = img.naturalHeight >= img.naturalWidth;
+        ratioCache[src] = isPortrait;
+        callback(isPortrait);
+      };
+      img.onerror = () => { ratioCache[src] = null; callback(null); };
+      img.src = src;
+    }
+
+    // 백그라운드에서 작품들 분류 (처음 100개)
+    function buildOrientationPools() {
+      const sample = artworks.slice(0, Math.min(200, artworks.length));
+      let done = 0;
+      sample.forEach((artwork, i) => {
+        setTimeout(() => {
+          classifyImage(artwork, (isPortrait) => {
+            if (isPortrait === true) portraitPool.push(artwork);
+            else if (isPortrait === false) landscapePool.push(artwork);
+            done++;
+            if (done === sample.length) {
+              // 셔플
+              for (let i = portraitPool.length-1; i>0; i--) {
+                const j = Math.floor(Math.random()*(i+1));
+                [portraitPool[i],portraitPool[j]] = [portraitPool[j],portraitPool[i]];
+              }
+              for (let i = landscapePool.length-1; i>0; i--) {
+                const j = Math.floor(Math.random()*(i+1));
+                [landscapePool[i],landscapePool[j]] = [landscapePool[j],landscapePool[i]];
+              }
+              console.log(`분류 완료: 세로 ${portraitPool.length}개, 가로 ${landscapePool.length}개`);
+            }
+          });
+        }, i * 50);
+      });
     }
 
     // ── 페이지 나갈 때 TTS 종료 ──
