@@ -336,6 +336,7 @@
     let currentLang = 'ko';
     let artworks = [];
     let currentIndex = 0;
+    let currentArtwork = null;
     let ttsUtterance = null;
     let ttsPlaying = false;
     let ttsSpeed = 1.0;
@@ -1523,6 +1524,7 @@
 
     // ── 작품 렌더링 ──
     function renderArtwork(artwork) {
+      currentArtwork = artwork;
       const t = i18n[currentLang];
       const infoBar = document.getElementById('infoBar');
       const errorBox = document.getElementById('errorBox');
@@ -1658,7 +1660,7 @@
     function startTTS() {
       if (!window.speechSynthesis) return;
 
-      const artwork = artworks[currentIndex];
+      const artwork = currentArtwork || artworks[currentIndex];
       const desc = buildDescription(artwork, currentLang);
       const titleText = (currentLang === 'ko' && artwork.title_ko) ? artwork.title_ko : (artwork.title || '');
       const artistText = artwork.artist_display ? artwork.artist_display.split('\n')[0] : '';
@@ -1702,8 +1704,8 @@
         document.getElementById('ttsBar').style.width = '100%';
         setTimeout(() => {
           document.getElementById('ttsBar').style.width = '0%';
-          const art = navigateOriented(1);
-          renderArtwork(art);
+          currentArtwork = navigateOriented(1);
+          renderArtwork(currentArtwork);
           setTimeout(() => startTTS(), 1000);
         }, 800);
       };
