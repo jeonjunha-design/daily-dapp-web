@@ -1941,9 +1941,9 @@
 
     // ── 방향별 네비게이션 ──
     function navigateOriented(dir) {
-      const isMobile = window.innerWidth <= 900 || window.innerHeight <= 900;
       const isFullscreen = document.getElementById('fullscreenModal').classList.contains('show');
-      if (!isMobile || isFullscreen) {
+      // 전체화면이면 방향 상관없이 전체 풀
+      if (isFullscreen) {
         currentIndex = (currentIndex + dir + artworks.length) % artworks.length;
         return artworks[currentIndex];
       }
