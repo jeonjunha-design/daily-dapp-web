@@ -1942,8 +1942,9 @@
     // ── 방향별 네비게이션 ──
     function navigateOriented(dir) {
       const isFullscreen = document.getElementById('fullscreenModal').classList.contains('show');
-      // 전체화면이면 방향 상관없이 전체 풀
-      if (isFullscreen) {
+      const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+      // 컴퓨터 또는 전체화면이면 전체 풀
+      if (!isMobile || isFullscreen) {
         currentIndex = (currentIndex + dir + artworks.length) % artworks.length;
         return artworks[currentIndex];
       }
