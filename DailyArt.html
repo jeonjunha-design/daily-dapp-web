@@ -2000,50 +2000,21 @@
       }
     }
 
-    // 이미지 비율 감지 후 풀에 분류
-    function classifyImage(artwork, callback) {
-      const src = imageUrl(artwork);
-      if (ratioCache[src] !== undefined) {
-        callback(ratioCache[src]);
-        return;
-      }
-      const img = new Image();
-      img.onload = () => {
-        const isPortrait = img.naturalHeight >= img.naturalWidth;
-        ratioCache[src] = isPortrait;
-        callback(isPortrait);
-      };
-      img.onerror = () => { ratioCache[src] = null; callback(null); };
-      img.src = src;
-    }
-
-    // 백그라운드에서 전체 작품 방향 분류
     function buildOrientationPools() {
-      const sample = [...artworks];
-      let done = 0;
-      sample.forEach((artwork, i) => {
-        setTimeout(() => {
-          classifyImage(artwork, (isPortrait) => {
-            if (isPortrait === true) portraitPool.push(artwork);
-            else if (isPortrait === false) landscapePool.push(artwork);
-            done++;
-            if (done === sample.length) {
-              for (let i = portraitPool.length-1; i>0; i--) {
-                const j = Math.floor(Math.random()*(i+1));
-                [portraitPool[i],portraitPool[j]] = [portraitPool[j],portraitPool[i]];
-              }
-              for (let i = landscapePool.length-1; i>0; i--) {
-                const j = Math.floor(Math.random()*(i+1));
-                [landscapePool[i],landscapePool[j]] = [landscapePool[j],landscapePool[i]];
-              }
-              console.log(`분류 완료: 세로 ${portraitPool.length}개, 가로 ${landscapePool.length}개`);
-            }
-          });
-        }, i * 30);
-      });
+      portraitPool = artworks.filter(a => a.ratio === 'p');
+      landscapePool = artworks.filter(a => a.ratio === 'l' || !a.ratio);
+      for (let i = portraitPool.length-1; i>0; i--) {
+        const j = Math.floor(Math.random()*(i+1));
+        [portraitPool[i],portraitPool[j]] = [portraitPool[j],portraitPool[i]];
+      }
+      for (let i = landscapePool.length-1; i>0; i--) {
+        const j = Math.floor(Math.random()*(i+1));
+        [landscapePool[i],landscapePool[j]] = [landscapePool[j],landscapePool[i]];
+      }
+      console.log('풀 준비: 세로 ' + portraitPool.length + '개, 가로 ' + landscapePool.length + '개');
     }
 
-    // ── 페이지 나갈 때 TTS 종료 ──
+        // ── 페이지 나갈 때 TTS 종료 ──
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) stopTTS();
     });
