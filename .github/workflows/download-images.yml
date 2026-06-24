@@ -1,0 +1,66 @@
+name: 이미지 다운로드
+
+on:
+  workflow_dispatch:
+    inputs:
+      images:
+        description: '이미지 목록 (파일명=URL 형식, 줄바꿈으로 구분)'
+        required: true
+        type: string
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 이미지 다운로드
+        run: |
+          mkdir -p images
+          echo "${{ github.event.inputs.images }}" | while IFS='=' read -r fname url; do
+            fname=$(echo "$fname" | tr -d ' ')
+            url=$(echo "$url" | tr -d ' ')
+            if [ -n "$fname" ] && [ -n "$url" ]; then
+              echo "다운로드: $fname"
+              curl -L -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36" \
+                   -H "Referer: https://en.wikipedia.org/" \
+                   -o "images/$fname" "$url"
+              size=$(wc -c < "images/$fname")
+              echo "  -> ${size} bytes"
+            fi
+          done
+
+      - name: 이미지 최적화
+        run: |
+          pip install Pillow -q
+          python3 -c "
+          import os
+          from PIL import Image
+          img_dir = 'images'
+          for fname in os.listdir(img_dir):
+              if not fname.endswith('.jpg') and not fname.endswith('.png'):
+                  continue
+              path = os.path.join(img_dir, fname)
+              size = os.path.getsize(path)
+              if size > 2 * 1024 * 1024:
+                  try:
+                      img = Image.open(path)
+                      img.thumbnail((1200, 1200))
+                      img.save(path, quality=85, optimize=True)
+                      new_size = os.path.getsize(path)
+                      print(f'최적화: {fname} {size//1024}KB -> {new_size//1024}KB')
+                  except Exception as e:
+                      print(f'스킵: {fname} ({e})')
+          "
+
+      - name: GitHub에 커밋
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add images/
+          git diff --staged --quiet || git commit -m "이미지 자동 추가 $(date '+%Y-%m-%d')"
+          git push
