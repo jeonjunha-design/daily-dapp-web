@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       images:
-        description: "파일명=URL|파일명=URL 형식으로 | 로 구분"
+        description: "파일명=URL##파일명=URL 형식 (##으로 구분)"
         required: true
         type: string
 jobs:
@@ -18,7 +18,7 @@ jobs:
           IMAGES: ${{ github.event.inputs.images }}
         run: |
           mkdir -p images
-          echo 'aW1wb3J0IHVybGxpYi5yZXF1ZXN0LCBvcywgdGltZQppbWdzID0gb3MuZW52aXJvbi5nZXQoIklNQUdFUyIsIiIpCmhkciA9IHsiVXNlci1BZ2VudCI6Ik1vemlsbGEvNS4wIiwiUmVmZXJlciI6Imh0dHBzOi8vZW4ud2lraXBlZGlhLm9yZy8ifQpvcy5tYWtlZGlycygiaW1hZ2VzIiwgZXhpc3Rfb2s9VHJ1ZSkKaXRlbXMgPSBbeC5zdHJpcCgpIGZvciB4IGluIGltZ3MucmVwbGFjZSgifCIsIgoiKS5zcGxpdGxpbmVzKCldCmZvciBsaW5lIGluIGl0ZW1zOgogICAgaWYgIj0iIG5vdCBpbiBsaW5lOiBjb250aW51ZQogICAgZm5hbWUsdXJsID0gbGluZS5zcGxpdCgiPSIsMSkKICAgIGZuYW1lLHVybCA9IGZuYW1lLnN0cmlwKCksdXJsLnN0cmlwKCkKICAgIGlmIG5vdCBmbmFtZSBvciBub3QgdXJsOiBjb250aW51ZQogICAgdHJ5OgogICAgICAgIHRpbWUuc2xlZXAoMSkKICAgICAgICByZXEgPSB1cmxsaWIucmVxdWVzdC5SZXF1ZXN0KHVybCwgaGVhZGVycz1oZHIpCiAgICAgICAgZGF0YSA9IHVybGxpYi5yZXF1ZXN0LnVybG9wZW4ocmVxLCB0aW1lb3V0PTE1KS5yZWFkKCkKICAgICAgICBvcGVuKCJpbWFnZXMvIitmbmFtZSwid2IiKS53cml0ZShkYXRhKQogICAgICAgIHByaW50KCJPSyAiK2ZuYW1lKyIgIitzdHIobGVuKGRhdGEpLy8xMDI0KSsiS0IiKQogICAgZXhjZXB0IEV4Y2VwdGlvbiBhcyBlOgogICAgICAgIHByaW50KCJFUlIgIitmbmFtZSsiICIrc3RyKGUpKQo=' | base64 -d > /tmp/dl.py
+          echo 'aW1wb3J0IHVybGxpYi5yZXF1ZXN0LCBvcywgdGltZQppbWdzID0gb3MuZW52aXJvbi5nZXQoIklNQUdFUyIsIiIpCmhkciA9IHsiVXNlci1BZ2VudCI6Ik1vemlsbGEvNS4wIiwiUmVmZXJlciI6Imh0dHBzOi8vZW4ud2lraXBlZGlhLm9yZy8ifQpvcy5tYWtlZGlycygiaW1hZ2VzIiwgZXhpc3Rfb2s9VHJ1ZSkKc2VwID0gIiMjIgppdGVtcyA9IGltZ3Muc3BsaXQoc2VwKQpmb3IgbGluZSBpbiBpdGVtczoKICAgIGxpbmUgPSBsaW5lLnN0cmlwKCkKICAgIGlmICI9IiBub3QgaW4gbGluZTogY29udGludWUKICAgIGZuYW1lLHVybCA9IGxpbmUuc3BsaXQoIj0iLDEpCiAgICBmbmFtZSx1cmwgPSBmbmFtZS5zdHJpcCgpLHVybC5zdHJpcCgpCiAgICBpZiBub3QgZm5hbWUgb3Igbm90IHVybDogY29udGludWUKICAgIHRyeToKICAgICAgICB0aW1lLnNsZWVwKDEpCiAgICAgICAgcmVxID0gdXJsbGliLnJlcXVlc3QuUmVxdWVzdCh1cmwsIGhlYWRlcnM9aGRyKQogICAgICAgIGRhdGEgPSB1cmxsaWIucmVxdWVzdC51cmxvcGVuKHJlcSwgdGltZW91dD0xNSkucmVhZCgpCiAgICAgICAgb3BlbigiaW1hZ2VzLyIrZm5hbWUsIndiIikud3JpdGUoZGF0YSkKICAgICAgICBwcmludCgiT0sgIitmbmFtZSsiICIrc3RyKGxlbihkYXRhKS8vMTAyNCkrIktCIikKICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZToKICAgICAgICBwcmludCgiRVJSICIrZm5hbWUrIiAiK3N0cihlKSkK' | base64 -d > /tmp/dl.py
           python3 /tmp/dl.py
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
