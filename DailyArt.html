@@ -304,7 +304,6 @@
         <button class="tts-icon-btn" id="ttsBtn" title="음성 해설">▶</button>
         <div class="nav-group">
           <button class="nav-icon-btn" id="prevBtn" title="이전">‹</button>
-          <span class="nav-counter" id="navCounter">1/15</span>
           <button class="nav-icon-btn" id="nextBtn" title="다음">›</button>
         </div>
       </div>
@@ -1142,7 +1141,6 @@
       }
 
       // 카운터
-      document.getElementById('navCounter').textContent = t.counter(currentIndex + 1, artworks.length);
 
       // 네비 버튼 항상 활성화 (순환)
       document.getElementById('prevBtn').disabled = false;
