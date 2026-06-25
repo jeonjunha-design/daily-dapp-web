@@ -500,7 +500,7 @@
 
         // 카드 하이퍼링크 주소 동적 최적화 연동
         const linkIds = ['card1Link', 'card2Link', 'card3Link', 'card4Link', 'card5Link', 'card6Link'];
-        const targetFiles = ['DailyHoroscope.html', 'AI-3.html', 'Eng11.html', 'Hanja1000.html', 'DailyArt.html'];
+        const targetFiles = ['DailyHoroscope.html', 'AI-3.html', 'Eng11.html', 'Hanja1000.html', 'DailyArt.html', 'ArtistList.html'];
         linkIds.forEach((id, idx) => {
           const linkEl = document.getElementById(id);
           if (linkEl) linkEl.href = targetFiles[idx] + "?lang=" + lang;
