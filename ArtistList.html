@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>화가 목록 · Daily-Dapp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Noto+Sans+KR:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1318;
+      --bg2: #1a2030;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f4f8;
+      --muted: #8896a8;
+      --dim: #4a5568;
+      --gold: #c9a84c;
+      --gold-dim: rgba(201,168,76,0.15);
+      --gold-glow: rgba(201,168,76,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── 헤더 ── */
+    .header {
+      position: fixed; top: 0; inset-inline: 0; height: 60px;
+      background: rgba(15,19,24,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      display: flex; align-items: center;
+    }
+    .header-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .back-btn {
+      color: var(--muted); text-decoration: none; font-size: 14px;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--text); }
+    .header-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; color: var(--gold); letter-spacing: 0.5px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      color: var(--muted); font-size: 13px; font-weight: 600;
+      padding: 6px 12px; border-radius: 20px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+
+    /* ── 히어로 ── */
+    .hero {
+      padding: 100px 24px 48px;
+      max-width: 1100px; margin: 0 auto;
+      text-align: center;
+    }
+    .hero-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      color: var(--gold); text-transform: uppercase; margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 48px);
+      color: var(--text); line-height: 1.2; margin-bottom: 12px;
+    }
+    .hero-subtitle {
+      font-size: 15px; color: var(--muted); margin-bottom: 32px;
+    }
+
+    /* ── 검색 ── */
+    .search-wrap {
+      max-width: 440px; margin: 0 auto 48px;
+      position: relative;
+    }
+    .search-input {
+      width: 100%; padding: 12px 20px 12px 44px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 12px; color: var(--text); font-size: 15px;
+      outline: none; transition: border-color 0.2s;
+    }
+    .search-input:focus { border-color: var(--gold); }
+    .search-icon {
+      position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+      color: var(--dim); font-size: 16px; pointer-events: none;
+    }
+
+    /* ── 작가 그리드 ── */
+    .main { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+
+    .era-section { margin-bottom: 48px; }
+    .era-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .artist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .artist-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+      display: block;
+    }
+    .artist-card:hover {
+      border-color: var(--gold);
+      background: var(--gold-dim);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px var(--gold-glow);
+    }
+
+    /* 대표 이미지 */
+    .card-img {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover;
+      background: var(--bg2);
+      display: block;
+    }
+    .card-img-placeholder {
+      width: 100%; aspect-ratio: 4/3;
+      background: var(--bg2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+    }
+
+    .card-body { padding: 14px 16px 16px; }
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px; font-weight: 700; color: var(--text);
+      margin-bottom: 4px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .card-name-ko {
+      font-size: 13px; color: var(--gold); margin-bottom: 4px;
+    }
+    .card-meta {
+      font-size: 11px; color: var(--dim);
+    }
+    .card-count {
+      display: inline-flex; align-items: center;
+      background: var(--gold-dim); color: var(--gold);
+      font-size: 11px; font-weight: 700;
+      padding: 2px 8px; border-radius: 10px;
+      margin-top: 8px;
+    }
+
+    /* ── 빈 상태 ── */
+    .empty { text-align: center; padding: 60px; color: var(--dim); }
+
+    @media (max-width: 600px) {
+      .artist-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .hero { padding: 90px 16px 32px; }
+      .main { padding: 0 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="back-btn">← <span id="backLabel">홈으로</span></a>
+      <span class="header-title">🎨 화가 컬렉션</span>
+      <button class="lang-btn" id="langToggle">🌐 EN</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-label" id="heroLabel">MASTER ARTISTS</div>
+    <h1 class="hero-title" id="heroTitle">화가별 작품 감상</h1>
+    <p class="hero-subtitle" id="heroSub">37명의 거장, 620여 점의 명화를 작가별로 만나보세요</p>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="searchInput" type="text" placeholder="화가 이름 검색..." />
+    </div>
+  </div>
+
+  <main class="main" id="mainGrid"></main>
+
+  <script>
+    let currentLang = 'ko';
+
+    const i18n = {
+      ko: {
+        back: '홈으로', langBtn: '🌐 EN',
+        heroLabel: 'MASTER ARTISTS',
+        heroTitle: '화가별 작품 감상',
+        heroSub: '37명의 거장, 620여 점의 명화를 작가별로 만나보세요',
+        searchPlaceholder: '화가 이름 검색...',
+        worksCount: (n) => `작품 ${n}점`,
+        noResult: '검색 결과가 없어요',
+      },
+      en: {
+        back: 'Home', langBtn: '🌐 KO',
+        heroLabel: 'MASTER ARTISTS',
+        heroTitle: 'Browse by Artist',
+        heroSub: 'Explore 620+ masterworks from 37 great painters',
+        searchPlaceholder: 'Search artist...',
+        worksCount: (n) => `${n} works`,
+        noResult: 'No results found',
+      }
+    };
+
+    // 작가 데이터 (이름, 한국어명, 국적, 시대, 작품수)
+    const ARTISTS = [
+      // 르네상스
+      { key:'Leonardo da Vinci', name:'Leonardo da Vinci', ko:'레오나르도 다 빈치', nation:'Italian', era:'Renaissance', years:'1452–1519', count:19 },
+      { key:'Michelangelo', name:'Michelangelo', ko:'미켈란젤로', nation:'Italian', era:'Renaissance', years:'1475–1564', count:16 },
+      { key:'Raphael', name:'Raphael', ko:'라파엘로', nation:'Italian', era:'Renaissance', years:'1483–1520', count:29 },
+      { key:'Botticelli', name:'Botticelli', ko:'보티첼리', nation:'Italian', era:'Renaissance', years:'1445–1510', count:17 },
+      { key:'Titian', name:'Titian', ko:'티치아노', nation:'Italian', era:'Renaissance', years:'1488–1576', count:19 },
+      { key:'Durer', name:'Albrecht Dürer', ko:'알브레히트 뒤러', nation:'German', era:'Renaissance', years:'1471–1528', count:18 },
+      { key:'Holbein', name:'Hans Holbein', ko:'한스 홀바인', nation:'German', era:'Renaissance', years:'1497–1543', count:17 },
+      { key:'Bruegel', name:'Pieter Bruegel', ko:'피터르 브뤼헐', nation:'Flemish', era:'Renaissance', years:'1525–1569', count:17 },
+      { key:'Cranach', name:'Lucas Cranach', ko:'루카스 크라나흐', nation:'German', era:'Renaissance', years:'1472–1553', count:19 },
+      { key:'Jan van Eyck', name:'Jan van Eyck', ko:'얀 반 에이크', nation:'Flemish', era:'Renaissance', years:'1390–1441', count:3 },
+      // 바로크
+      { key:'Caravaggio', name:'Caravaggio', ko:'카라바조', nation:'Italian', era:'Baroque', years:'1571–1610', count:16 },
+      { key:'Rubens', name:'Peter Paul Rubens', ko:'페테르 파울 루벤스', nation:'Flemish', era:'Baroque', years:'1577–1640', count:18 },
+      { key:'Rembrandt', name:'Rembrandt', ko:'렘브란트', nation:'Dutch', era:'Baroque', years:'1606–1669', count:20 },
+      { key:'Vermeer', name:'Johannes Vermeer', ko:'요하네스 베르메르', nation:'Dutch', era:'Baroque', years:'1632–1675', count:15 },
+      { key:'Velazquez', name:'Diego Velázquez', ko:'디에고 벨라스케스', nation:'Spanish', era:'Baroque', years:'1599–1660', count:17 },
+      { key:'El Greco', name:'El Greco', ko:'엘 그레코', nation:'Greek/Spanish', era:'Baroque', years:'1541–1614', count:16 },
+      { key:'Poussin', name:'Nicolas Poussin', ko:'니콜라 푸생', nation:'French', era:'Baroque', years:'1594–1665', count:18 },
+      // 신고전·낭만
+      { key:'David Jacques-Louis', name:'Jacques-Louis David', ko:'자크 루이 다비드', nation:'French', era:'Neoclassical', years:'1748–1825', count:16 },
+      { key:'Ingres', name:'Jean-Auguste Ingres', ko:'장 오귀스트 앵그르', nation:'French', era:'Neoclassical', years:'1780–1867', count:14 },
+      { key:'Goya (Francisco de Goya y Lucientes)', name:'Francisco Goya', ko:'프란시스코 고야', nation:'Spanish', era:'Romantic', years:'1746–1828', count:4 },
+      // 사실주의
+      { key:'Courbet', name:'Gustave Courbet', ko:'귀스타브 쿠르베', nation:'French', era:'Realism', years:'1819–1877', count:20 },
+      { key:'Millet', name:'Jean-François Millet', ko:'장 프랑수아 밀레', nation:'French', era:'Realism', years:'1814–1875', count:17 },
+      { key:'Corot', name:'Jean-Baptiste Corot', ko:'장 바티스트 코로', nation:'French', era:'Realism', years:'1796–1875', count:20 },
+      // 인상주의
+      { key:'Monet', name:'Claude Monet', ko:'클로드 모네', nation:'French', era:'Impressionism', years:'1840–1926', count:20 },
+      { key:'Degas', name:'Edgar Degas', ko:'에드가 드가', nation:'French', era:'Impressionism', years:'1834–1917', count:20 },
+      { key:'Manet', name:'Édouard Manet', ko:'에두아르 마네', nation:'French', era:'Impressionism', years:'1832–1883', count:18 },
+      { key:'Morisot', name:'Berthe Morisot', ko:'베르트 모리조', nation:'French', era:'Impressionism', years:'1841–1895', count:16 },
+      { key:'Sisley', name:'Alfred Sisley', ko:'알프레드 시슬레', nation:'French/British', era:'Impressionism', years:'1839–1899', count:17 },
+      { key:'Cassatt', name:'Mary Cassatt', ko:'메리 카샛', nation:'American', era:'Impressionism', years:'1844–1926', count:11 },
+      { key:'Toulouse-Lautrec', name:'Henri de Toulouse-Lautrec', ko:'앙리 드 툴루즈 로트레크', nation:'French', era:'Post-Impressionism', years:'1864–1901', count:15 },
+      // 후기 인상주의
+      { key:'Van Gogh', name:'Vincent van Gogh', ko:'빈센트 반 고흐', nation:'Dutch', era:'Post-Impressionism', years:'1853–1890', count:20 },
+      { key:'Cezanne', name:'Paul Cézanne', ko:'폴 세잔', nation:'French', era:'Post-Impressionism', years:'1839–1906', count:20 },
+      { key:'Gauguin', name:'Paul Gauguin', ko:'폴 고갱', nation:'French', era:'Post-Impressionism', years:'1848–1903', count:16 },
+      { key:'Seurat', name:'Georges Seurat', ko:'조르주 쇠라', nation:'French', era:'Post-Impressionism', years:'1859–1891', count:16 },
+      // 근현대
+      { key:'Munch', name:'Edvard Munch', ko:'에드바르 뭉크', nation:'Norwegian', era:'Expressionism', years:'1863–1944', count:12 },
+      { key:'Klimt', name:'Gustav Klimt', ko:'구스타프 클림트', nation:'Austrian', era:'Symbolism', years:'1862–1918', count:15 },
+      { key:'Hokusai', name:'Katsushika Hokusai', ko:'가쓰시카 호쿠사이', nation:'Japanese', era:'Ukiyo-e', years:'1760–1849', count:20 },
+      { key:'Whistler', name:'James Whistler', ko:'제임스 휘슬러', nation:'American', era:'Tonalism', years:'1834–1903', count:17 },
+      { key:'Homer Winslow', name:'Winslow Homer', ko:'윈슬로 호머', nation:'American', era:'Realism', years:'1836–1910', count:20 },
+      { key:'Sargent', name:'John Singer Sargent', ko:'존 싱어 사전트', nation:'American', era:'Impressionism', years:'1856–1925', count:9 },
+      { key:'Hopper', name:'Edward Hopper', ko:'에드워드 호퍼', nation:'American', era:'Realism', years:'1882–1967', count:9 },
+    ];
+
+    // 시대 그룹
+    const ERA_ORDER = ['Renaissance','Baroque','Neoclassical','Romantic','Realism','Impressionism','Post-Impressionism','Expressionism','Symbolism','Ukiyo-e','Tonalism'];
+    const ERA_KO = {
+      'Renaissance': '르네상스', 'Baroque': '바로크', 'Neoclassical': '신고전주의',
+      'Romantic': '낭만주의', 'Realism': '사실주의', 'Impressionism': '인상주의',
+      'Post-Impressionism': '후기 인상주의', 'Expressionism': '표현주의',
+      'Symbolism': '상징주의', 'Ukiyo-e': '우키요에', 'Tonalism': '토널리즘'
+    };
+
+    const GITHUB_RAW = 'https://raw.githubusercontent.com/jeonjunha-design/daily-dapp-web/main/images/';
+
+    function getRepresentativeImage(artistKey) {
+      // artist_collections.json의 첫 번째 이미지 사용
+      return null; // 실제로는 JSON에서 가져옴
+    }
+
+    function renderGrid(filter = '') {
+      const main = document.getElementById('mainGrid');
+      const t = i18n[currentLang];
+      const filtered = ARTISTS.filter(a => {
+        if (!filter) return true;
+        const q = filter.toLowerCase();
+        return a.name.toLowerCase().includes(q) || a.ko.includes(filter) || a.nation.toLowerCase().includes(q);
+      });
+
+      if (filtered.length === 0) {
+        main.innerHTML = `<div class="empty">${t.noResult}</div>`;
+        return;
+      }
+
+      // 시대별 그룹핑
+      const groups = {};
+      filtered.forEach(a => {
+        if (!groups[a.era]) groups[a.era] = [];
+        groups[a.era].push(a);
+      });
+
+      let html = '';
+      ERA_ORDER.forEach(era => {
+        if (!groups[era]) return;
+        const eraName = currentLang === 'ko' ? (ERA_KO[era] || era) : era;
+        html += `<div class="era-section">
+          <div class="era-title">${eraName}</div>
+          <div class="artist-grid">`;
+        groups[era].forEach(a => {
+          const name = currentLang === 'ko' ? a.ko : a.name;
+          const subName = currentLang === 'ko' ? a.name : a.ko;
+          html += `
+            <a class="artist-card" href="ArtistDetail.html?artist=${encodeURIComponent(a.key)}&lang=${currentLang}">
+              <div class="card-img-placeholder">🖼️</div>
+              <div class="card-body">
+                <div class="card-name">${name}</div>
+                <div class="card-name-ko">${subName}</div>
+                <div class="card-meta">${a.nation} · ${a.years}</div>
+                <div class="card-count">${t.worksCount(a.count)}</div>
+              </div>
+            </a>`;
+        });
+        html += `</div></div>`;
+      });
+
+      main.innerHTML = html;
+
+      // 대표 이미지 로드
+      loadRepresentativeImages(filtered);
+    }
+
+    function loadRepresentativeImages(artists) {
+      // artist_collections.json 로드
+      fetch('artist_collections.json')
+        .then(r => r.json())
+        .then(collections => {
+          artists.forEach(a => {
+            const ids = collections[a.key];
+            if (!ids || ids.length === 0) return;
+            const id = ids[0];
+            const fname = `artist_${id}.jpg`;
+            const src = GITHUB_RAW + fname;
+            // 해당 카드의 placeholder 찾아서 교체
+            document.querySelectorAll('.artist-card').forEach(card => {
+              if (card.href.includes(encodeURIComponent(a.key))) {
+                const placeholder = card.querySelector('.card-img-placeholder');
+                if (placeholder) {
+                  const img = document.createElement('img');
+                  img.className = 'card-img';
+                  img.src = src;
+                  img.alt = a.name;
+                  img.onerror = () => {};
+                  placeholder.replaceWith(img);
+                }
+              }
+            });
+          });
+        })
+        .catch(() => {});
+    }
+
+    function applyLang() {
+      const t = i18n[currentLang];
+      document.getElementById('langToggle').textContent = t.langBtn;
+      document.getElementById('backLabel').textContent = t.back;
+      document.getElementById('heroLabel').textContent = t.heroLabel;
+      document.getElementById('heroTitle').textContent = t.heroTitle;
+      document.getElementById('heroSub').textContent = t.heroSub;
+      document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+      document.documentElement.lang = currentLang;
+      renderGrid(document.getElementById('searchInput').value);
+      try { localStorage.setItem('daily_lang', currentLang); } catch(e) {}
+    }
+
+    // 이벤트
+    document.getElementById('langToggle').onclick = () => {
+      currentLang = currentLang === 'ko' ? 'en' : 'ko';
+      applyLang();
+    };
+
+    document.getElementById('searchInput').oninput = (e) => {
+      renderGrid(e.target.value);
+    };
+
+    // 초기화
+    const params = new URLSearchParams(location.search);
+    const saved = (() => { try { return localStorage.getItem('daily_lang'); } catch(e) { return null; } })();
+    currentLang = params.get('lang') || saved || 'ko';
+    applyLang();
+  </script>
+</body>
+</html>

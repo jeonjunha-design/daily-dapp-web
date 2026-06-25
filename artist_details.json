@@ -1,0 +1,2842 @@
+{
+  "Michelangelo": {
+    "display_name": "Caravaggio (Michelangelo Merisi)",
+    "nationality": "Italian",
+    "begin_date": "1571",
+    "end_date": "1610",
+    "artworks": [
+      {
+        "id": "435844",
+        "title": "The Musicians",
+        "date": "1597",
+        "medium": "Oil on canvas",
+        "file": "artist_435844.jpg"
+      },
+      {
+        "id": "437986",
+        "title": "The Denial of Saint Peter",
+        "date": "1610",
+        "medium": "Oil on canvas",
+        "file": "artist_437986.jpg"
+      },
+      {
+        "id": "436567",
+        "title": "Scenes from the Life of Saint John the Baptist",
+        "date": "ca. 1506–7",
+        "medium": "Tempera, oil, and gold on wood",
+        "file": "artist_436567.jpg"
+      },
+      {
+        "id": "441227",
+        "title": "The Holy Family with the Infant Saint John the Baptist",
+        "date": "ca. 1524–26",
+        "medium": "Oil on wood",
+        "file": "artist_441227.jpg"
+      },
+      {
+        "id": "437245",
+        "title": "Modern Rome",
+        "date": "1757",
+        "medium": "Oil on canvas",
+        "file": "artist_437245.jpg"
+      },
+      {
+        "id": "435595",
+        "title": "Madonna and Child",
+        "date": "possibly early 1520s",
+        "medium": "Oil and gold on wood",
+        "file": "artist_435595.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "436568",
+        "title": "Saint John the Baptist Bearing Witness",
+        "date": "ca. 1506–7",
+        "medium": "Oil and gold on wood",
+        "file": "artist_436568.jpg"
+      },
+      {
+        "id": "436576",
+        "title": "The Vision of Saint John",
+        "date": "ca. 1608–14",
+        "medium": "Oil on canvas",
+        "file": "artist_436576.jpg"
+      },
+      {
+        "id": "438688",
+        "title": "Saint Francis",
+        "date": "ca. 1600–1604",
+        "medium": "Oil on canvas",
+        "file": "artist_438688.jpg"
+      },
+      {
+        "id": "459092",
+        "title": "Trees and Houses Near the Jas de Bouffan",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_459092.jpg"
+      },
+      {
+        "id": "437497",
+        "title": "The Flagellation; (reverse) The Madonna of Mercy",
+        "date": "ca. 1540",
+        "medium": "Distemper and oil(?) on canvas",
+        "file": "artist_437497.jpg"
+      },
+      {
+        "id": "440393",
+        "title": "The Baptism of Christ",
+        "date": "ca. 1590",
+        "medium": "Oil on canvas",
+        "file": "artist_440393.jpg"
+      },
+      {
+        "id": "435680",
+        "title": "Moses Striking the Rock",
+        "date": "1596",
+        "medium": "Oil on canvas",
+        "file": "artist_435680.jpg"
+      },
+      {
+        "id": "195456",
+        "title": "The Backgammon Players",
+        "date": "1861",
+        "medium": "Painted pine, oil paint on leather, brass, copper",
+        "file": "artist_195456.jpg"
+      },
+      {
+        "id": "459087",
+        "title": "Christ Carrying the Cross",
+        "date": "ca. 1577–87",
+        "medium": "Oil on canvas",
+        "file": "artist_459087.jpg"
+      }
+    ]
+  },
+  "Caravaggio": {
+    "display_name": "Caravaggio (Michelangelo Merisi)",
+    "nationality": "Italian",
+    "begin_date": "1571",
+    "end_date": "1610",
+    "artworks": [
+      {
+        "id": "435844",
+        "title": "The Musicians",
+        "date": "1597",
+        "medium": "Oil on canvas",
+        "file": "artist_435844.jpg"
+      },
+      {
+        "id": "437986",
+        "title": "The Denial of Saint Peter",
+        "date": "1610",
+        "medium": "Oil on canvas",
+        "file": "artist_437986.jpg"
+      },
+      {
+        "id": "436838",
+        "title": "The Fortune-Teller",
+        "date": "probably 1630s",
+        "medium": "Oil on canvas",
+        "file": "artist_436838.jpg"
+      },
+      {
+        "id": "437497",
+        "title": "The Flagellation; (reverse) The Madonna of Mercy",
+        "date": "ca. 1540",
+        "medium": "Distemper and oil(?) on canvas",
+        "file": "artist_437497.jpg"
+      },
+      {
+        "id": "441024",
+        "title": "Head of an Old Woman",
+        "date": "after 1610",
+        "medium": "Oil on canvas",
+        "file": "artist_441024.jpg"
+      },
+      {
+        "id": "435853",
+        "title": "The Coronation of the Virgin",
+        "date": "after 1595",
+        "medium": "Oil on canvas",
+        "file": "artist_435853.jpg"
+      },
+      {
+        "id": "209283",
+        "title": "Military Procession",
+        "date": "second half 16th century",
+        "medium": "Oil on canvas",
+        "file": "artist_209283.jpg"
+      },
+      {
+        "id": "209116",
+        "title": "Frieze fragment",
+        "date": "ca. 1520–35",
+        "medium": "Oil on canvas",
+        "file": "artist_209116.jpg"
+      },
+      {
+        "id": "442491",
+        "title": "Saints Peter and Paul",
+        "date": "1620s",
+        "medium": "Oil on canvas",
+        "file": "artist_442491.jpg"
+      },
+      {
+        "id": "712946",
+        "title": "The Calling of Saint Matthew",
+        "date": "ca. 1625–30",
+        "medium": "Oil on canvas",
+        "file": "artist_712946.jpg"
+      },
+      {
+        "id": "439933",
+        "title": "Lute Player",
+        "date": "ca. 1625–26",
+        "medium": "Oil on canvas",
+        "file": "artist_439933.jpg"
+      },
+      {
+        "id": "438690",
+        "title": "The Dormition of the Virgin",
+        "date": "ca. 1612",
+        "medium": "Oil on canvas",
+        "file": "artist_438690.jpg"
+      },
+      {
+        "id": "437630",
+        "title": "Saint Matthew and the Angel",
+        "date": "",
+        "medium": "Oil on canvas",
+        "file": "artist_437630.jpg"
+      },
+      {
+        "id": "437871",
+        "title": "The Supper at Emmaus",
+        "date": "1622–23",
+        "medium": "Oil on canvas",
+        "file": "artist_437871.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "652416",
+        "title": "The Crucifixion",
+        "date": "ca. 1625–30",
+        "medium": "Oil on canvas",
+        "file": "artist_652416.jpg"
+      }
+    ]
+  },
+  "Rubens": {
+    "display_name": "Peter Paul Rubens",
+    "nationality": "Flemish",
+    "begin_date": "1577",
+    "end_date": "1640",
+    "artworks": [
+      {
+        "id": "437532",
+        "title": "Rubens, Helena Fourment (1614–1673), and Their Son Frans (1633–1678)",
+        "date": "ca. 1635",
+        "medium": "Oil on wood",
+        "file": "artist_437532.jpg"
+      },
+      {
+        "id": "437536",
+        "title": "Wolf and Fox Hunt",
+        "date": "ca. 1616",
+        "medium": "Oil on canvas",
+        "file": "artist_437536.jpg"
+      },
+      {
+        "id": "437534",
+        "title": "The Triumph of Henry IV",
+        "date": "ca. 1630",
+        "medium": "Oil on wood",
+        "file": "artist_437534.jpg"
+      },
+      {
+        "id": "437530",
+        "title": "Portrait of a Man, Possibly an Architect or Geographer",
+        "date": "1597",
+        "medium": "Oil on copper",
+        "file": "artist_437530.jpg"
+      },
+      {
+        "id": "437525",
+        "title": "The Feast of Acheloüs",
+        "date": "ca. 1615",
+        "medium": "Oil on wood",
+        "file": "artist_437525.jpg"
+      },
+      {
+        "id": "437526",
+        "title": "A Forest at Dawn with a Deer Hunt",
+        "date": "ca. 1635",
+        "medium": "Oil on wood",
+        "file": "artist_437526.jpg"
+      },
+      {
+        "id": "437535",
+        "title": "Venus and Adonis",
+        "date": "probably mid-1630s",
+        "medium": "Oil on canvas",
+        "file": "artist_437535.jpg"
+      },
+      {
+        "id": "437528",
+        "title": "The Holy Family with Saints Francis and Anne and the Infant Saint John the Baptist",
+        "date": "early or mid-1630s",
+        "medium": "Oil on canvas",
+        "file": "artist_437528.jpg"
+      },
+      {
+        "id": "437524",
+        "title": "The Coronation of the Virgin",
+        "date": "ca. 1632–33",
+        "medium": "Oil on wood",
+        "file": "artist_437524.jpg"
+      },
+      {
+        "id": "437527",
+        "title": "The Glorification of the Eucharist",
+        "date": "ca. 1630–32",
+        "medium": "Oil on wood",
+        "file": "artist_437527.jpg"
+      },
+      {
+        "id": "437533",
+        "title": "Study of Two Heads",
+        "date": "ca. 1609",
+        "medium": "Oil on wood",
+        "file": "artist_437533.jpg"
+      },
+      {
+        "id": "437531",
+        "title": "Portrait of a Woman, Probably Susanna Lunden (Susanna Fourment, 1599–1628)",
+        "date": "ca. 1625–27",
+        "medium": "Oil on wood",
+        "file": "artist_437531.jpg"
+      },
+      {
+        "id": "437542",
+        "title": "Saint Teresa of Avila Interceding for Souls in Purgatory",
+        "date": "",
+        "medium": "Oil on wood",
+        "file": "artist_437542.jpg"
+      },
+      {
+        "id": "436951",
+        "title": "Fishing",
+        "date": "ca. 1862–63",
+        "medium": "Oil on canvas",
+        "file": "artist_436951.jpg"
+      },
+      {
+        "id": "436260",
+        "title": "Study Head of an Old Man with a White Beard",
+        "date": "ca. 1617–20",
+        "medium": "Oil on wood",
+        "file": "artist_436260.jpg"
+      },
+      {
+        "id": "436798",
+        "title": "The Holy Family with Shepherds",
+        "date": "1616",
+        "medium": "Oil on canvas, transferred from wood",
+        "file": "artist_436798.jpg"
+      },
+      {
+        "id": "437523",
+        "title": "Atalanta and Meleager",
+        "date": "ca. 1616",
+        "medium": "Oil on wood",
+        "file": "artist_437523.jpg"
+      },
+      {
+        "id": "437529",
+        "title": "The Holy Family with Saint Elizabeth, Saint John, and a Dove",
+        "date": "ca. 1608–9",
+        "medium": "Oil on oak",
+        "file": "artist_437529.jpg"
+      }
+    ]
+  },
+  "Velazquez": {
+    "display_name": "Velázquez (Diego Rodríguez de Silva y Velázquez)",
+    "nationality": "Spanish",
+    "begin_date": "1599",
+    "end_date": "1660",
+    "artworks": [
+      {
+        "id": "437874",
+        "title": "Portrait of a Man, Possibly a Self-Portrait",
+        "date": "ca. 1635",
+        "medium": "Oil on canvas",
+        "file": "artist_437874.jpg"
+      },
+      {
+        "id": "437871",
+        "title": "The Supper at Emmaus",
+        "date": "1622–23",
+        "medium": "Oil on canvas",
+        "file": "artist_437871.jpg"
+      },
+      {
+        "id": "437869",
+        "title": "Juan de Pareja (ca. 1608–1670)",
+        "date": "1650",
+        "medium": "Oil on canvas",
+        "file": "artist_437869.jpg"
+      },
+      {
+        "id": "437870",
+        "title": "María Teresa (1638–1683), Infanta of Spain",
+        "date": "1651–54",
+        "medium": "Oil on canvas",
+        "file": "artist_437870.jpg"
+      },
+      {
+        "id": "437873",
+        "title": "Philip IV (1605–1665), King of Spain",
+        "date": "probably 1624",
+        "medium": "Oil on canvas",
+        "file": "artist_437873.jpg"
+      },
+      {
+        "id": "437875",
+        "title": "Portrait of a Man",
+        "date": "ca. 1650",
+        "medium": "Oil on canvas",
+        "file": "artist_437875.jpg"
+      },
+      {
+        "id": "437868",
+        "title": "Don Gaspar de Guzmán (1587–1645), Count-Duke of Olivares",
+        "date": "ca. 1636 or later",
+        "medium": "Oil on canvas",
+        "file": "artist_437868.jpg"
+      },
+      {
+        "id": "436960",
+        "title": "A Matador",
+        "date": "1866–67",
+        "medium": "Oil on canvas",
+        "file": "artist_436960.jpg"
+      },
+      {
+        "id": "437872",
+        "title": "Mariana of Austria (1634–1696), Queen of Spain",
+        "date": "",
+        "medium": "Oil on canvas",
+        "file": "artist_437872.jpg"
+      },
+      {
+        "id": "459089",
+        "title": "María Teresa, Infanta of Spain",
+        "date": "mid-17th century",
+        "medium": "Oil on canvas",
+        "file": "artist_459089.jpg"
+      },
+      {
+        "id": "437046",
+        "title": "María Teresa (1638–1683), Infanta of Spain",
+        "date": "1646",
+        "medium": "Oil on canvas",
+        "file": "artist_437046.jpg"
+      },
+      {
+        "id": "10812",
+        "title": "Carmelita Requena",
+        "date": "1869",
+        "medium": "Oil on canvas",
+        "file": "artist_10812.jpg"
+      },
+      {
+        "id": "679844",
+        "title": "Fish Market",
+        "date": "1568",
+        "medium": "Oil on Baltic oak",
+        "file": "artist_679844.jpg"
+      },
+      {
+        "id": "437175",
+        "title": "Virgin and Child",
+        "date": "1670s",
+        "medium": "Oil on canvas",
+        "file": "artist_437175.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "436545",
+        "title": "Manuel Osorio Manrique de Zuñiga (1784–1792)",
+        "date": "1787–88",
+        "medium": "Oil on canvas",
+        "file": "artist_436545.jpg"
+      },
+      {
+        "id": "769297",
+        "title": "Pope Clement X (1590–1676)",
+        "date": "ca. 1670–71",
+        "medium": "Oil on canvas",
+        "file": "artist_769297.jpg"
+      }
+    ]
+  },
+  "Botticelli": {
+    "display_name": "Botticelli (Alessandro di Mariano Filipepi)",
+    "nationality": "Italian",
+    "begin_date": "1444",
+    "end_date": "1510",
+    "artworks": [
+      {
+        "id": "459016",
+        "title": "The Annunciation",
+        "date": "ca. 1490",
+        "medium": "Tempera and gold on wood",
+        "file": "artist_459016.jpg"
+      },
+      {
+        "id": "435729",
+        "title": "Three Miracles of Saint Zenobius",
+        "date": "ca. 1500",
+        "medium": "Tempera on wood",
+        "file": "artist_435729.jpg"
+      },
+      {
+        "id": "435728",
+        "title": "The Last Communion of Saint Jerome",
+        "date": "early 1490s",
+        "medium": "Tempera and gold on wood",
+        "file": "artist_435728.jpg"
+      },
+      {
+        "id": "435731",
+        "title": "The Coronation of the Virgin",
+        "date": "",
+        "medium": "Tempera on canvas, transferred from wood",
+        "file": "artist_435731.jpg"
+      },
+      {
+        "id": "459001",
+        "title": "Madonna Adoring the Child",
+        "date": "ca. 1490–95",
+        "medium": "Tempera and gold on wood",
+        "file": "artist_459001.jpg"
+      },
+      {
+        "id": "435730",
+        "title": "Madonna and Child with Two Angels",
+        "date": "",
+        "medium": "Tempera on wood",
+        "file": "artist_435730.jpg"
+      },
+      {
+        "id": "435618",
+        "title": "The Trinity",
+        "date": "",
+        "medium": "Tempera on wood",
+        "file": "artist_435618.jpg"
+      },
+      {
+        "id": "435664",
+        "title": "Portrait of a Young Man",
+        "date": "probably ca. 1470",
+        "medium": "Tempera on wood",
+        "file": "artist_435664.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "436892",
+        "title": "Madonna and Child",
+        "date": "ca. 1483–84",
+        "medium": "Tempera, oil, and gold on wood",
+        "file": "artist_436892.jpg"
+      },
+      {
+        "id": "459092",
+        "title": "Trees and Houses Near the Jas de Bouffan",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_459092.jpg"
+      },
+      {
+        "id": "437497",
+        "title": "The Flagellation; (reverse) The Madonna of Mercy",
+        "date": "ca. 1540",
+        "medium": "Distemper and oil(?) on canvas",
+        "file": "artist_437497.jpg"
+      },
+      {
+        "id": "435826",
+        "title": "The Love Song",
+        "date": "1868–77",
+        "medium": "Oil on canvas",
+        "file": "artist_435826.jpg"
+      },
+      {
+        "id": "437283",
+        "title": "A Hunting Scene",
+        "date": "ca. 1494–1500",
+        "medium": "Tempera and oil transferred to Masonite",
+        "file": "artist_437283.jpg"
+      },
+      {
+        "id": "195456",
+        "title": "The Backgammon Players",
+        "date": "1861",
+        "medium": "Painted pine, oil paint on leather, brass, copper",
+        "file": "artist_195456.jpg"
+      },
+      {
+        "id": "11380",
+        "title": "Nocturne",
+        "date": "ca. 1885",
+        "medium": "Watercolor, gouache, and charcoal on off-white wove paper\r adhered to wove paper",
+        "file": "artist_11380.jpg"
+      },
+      {
+        "id": "436896",
+        "title": "Portrait of a Woman with a Man at a Casement",
+        "date": "ca. 1440",
+        "medium": "Tempera on wood",
+        "file": "artist_436896.jpg"
+      }
+    ]
+  },
+  "Leonardo da Vinci": {
+    "display_name": "Antonello da Messina (Antonello di Giovanni d'Antonio)",
+    "nationality": "Italian",
+    "begin_date": "1430",
+    "end_date": "1479",
+    "artworks": [
+      {
+        "id": "435581",
+        "title": "Portrait of a Young Man",
+        "date": "ca. 1470",
+        "medium": "Oil on wood",
+        "file": "artist_435581.jpg"
+      },
+      {
+        "id": "435656",
+        "title": "The Assumption of the Virgin",
+        "date": "ca. 1510",
+        "medium": "Oil and gold on wood",
+        "file": "artist_435656.jpg"
+      },
+      {
+        "id": "459131",
+        "title": "The Last Supper",
+        "date": "ca. 1325",
+        "medium": "Tempera and gold on wood",
+        "file": "artist_459131.jpg"
+      },
+      {
+        "id": "437156",
+        "title": "The Entombment",
+        "date": "1554",
+        "medium": "Oil on canvas",
+        "file": "artist_437156.jpg"
+      },
+      {
+        "id": "437332",
+        "title": "Girl with Cherries",
+        "date": "ca. 1491–95",
+        "medium": "Oil on wood",
+        "file": "artist_437332.jpg"
+      },
+      {
+        "id": "435580",
+        "title": "Christ Crowned with Thorns",
+        "date": "",
+        "medium": "Oil, possibly over tempera, on wood",
+        "file": "artist_435580.jpg"
+      },
+      {
+        "id": "436910",
+        "title": "Portrait of a Young Woman",
+        "date": "ca. 1490–1500",
+        "medium": "Oil on wood",
+        "file": "artist_436910.jpg"
+      },
+      {
+        "id": "437157",
+        "title": "Christ in the Wilderness",
+        "date": "ca. 1515–20",
+        "medium": "Oil on canvas",
+        "file": "artist_437157.jpg"
+      },
+      {
+        "id": "437372",
+        "title": "Madonna and Child Enthroned with Saints",
+        "date": "ca. 1504",
+        "medium": "Oil and gold on wood",
+        "file": "artist_437372.jpg"
+      },
+      {
+        "id": "435614",
+        "title": "Madonna and Child with the Young Saint John the Baptist",
+        "date": "ca. 1497",
+        "medium": "Oil and gold on wood",
+        "file": "artist_435614.jpg"
+      },
+      {
+        "id": "436499",
+        "title": "Diana the Huntress",
+        "date": "",
+        "medium": "Oil on wood",
+        "file": "artist_436499.jpg"
+      },
+      {
+        "id": "436984",
+        "title": "The Adoration of the Magi",
+        "date": "1526",
+        "medium": "Oil on wood",
+        "file": "artist_436984.jpg"
+      },
+      {
+        "id": "435992",
+        "title": "Saints Peter, Martha, Mary Magdalen, and Leonard",
+        "date": "ca. 1515",
+        "medium": "Oil on canvas",
+        "file": "artist_435992.jpg"
+      },
+      {
+        "id": "626692",
+        "title": "The Jabach Family",
+        "date": "ca. 1660",
+        "medium": "Oil on canvas",
+        "file": "artist_626692.jpg"
+      },
+      {
+        "id": "437329",
+        "title": "The Abduction of the Sabine Women",
+        "date": "probably 1633–34",
+        "medium": "Oil on canvas",
+        "file": "artist_437329.jpg"
+      },
+      {
+        "id": "459039",
+        "title": "Madonna and Child with Saints Francis and Jerome",
+        "date": "ca. 1512–15",
+        "medium": "Oil and gold on wood",
+        "file": "artist_459039.jpg"
+      },
+      {
+        "id": "437283",
+        "title": "A Hunting Scene",
+        "date": "ca. 1494–1500",
+        "medium": "Tempera and oil transferred to Masonite",
+        "file": "artist_437283.jpg"
+      },
+      {
+        "id": "436535",
+        "title": "Wheat Field with Cypresses",
+        "date": "1889",
+        "medium": "Oil on canvas",
+        "file": "artist_436535.jpg"
+      },
+      {
+        "id": "436896",
+        "title": "Portrait of a Woman with a Man at a Casement",
+        "date": "ca. 1440",
+        "medium": "Tempera on wood",
+        "file": "artist_436896.jpg"
+      }
+    ]
+  },
+  "Titian": {
+    "display_name": "Titian (Tiziano Vecellio)",
+    "nationality": "Italian",
+    "begin_date": "1485",
+    "end_date": "1576",
+    "artworks": [
+      {
+        "id": "437826",
+        "title": "Venus and Adonis",
+        "date": "1550s",
+        "medium": "Oil on canvas",
+        "file": "artist_437826.jpg"
+      },
+      {
+        "id": "437175",
+        "title": "Virgin and Child",
+        "date": "1670s",
+        "medium": "Oil on canvas",
+        "file": "artist_437175.jpg"
+      },
+      {
+        "id": "437823",
+        "title": "Filippo Archinto (born about 1500, died 1558), Archbishop of Milan",
+        "date": "mid-1550s",
+        "medium": "Oil on canvas",
+        "file": "artist_437823.jpg"
+      },
+      {
+        "id": "437824",
+        "title": "Madonna and Child",
+        "date": "ca. 1508",
+        "medium": "Oil on wood",
+        "file": "artist_437824.jpg"
+      },
+      {
+        "id": "437827",
+        "title": "Venus and the Lute Player",
+        "date": "ca. 1565–70",
+        "medium": "Oil on canvas",
+        "file": "artist_437827.jpg"
+      },
+      {
+        "id": "438169",
+        "title": "Salvator Mundi",
+        "date": "ca. 1622–23",
+        "medium": "Oil on wood",
+        "file": "artist_438169.jpg"
+      },
+      {
+        "id": "437173",
+        "title": "Don Andrés de Andrade y la Cal",
+        "date": "ca. 1665–72",
+        "medium": "Oil on canvas",
+        "file": "artist_437173.jpg"
+      },
+      {
+        "id": "437825",
+        "title": "Portrait of a Man",
+        "date": "ca. 1515",
+        "medium": "Oil on canvas",
+        "file": "artist_437825.jpg"
+      },
+      {
+        "id": "436208",
+        "title": "The Three Ages of Humans",
+        "date": "ca. 1515",
+        "medium": "Oil on canvas",
+        "file": "artist_436208.jpg"
+      },
+      {
+        "id": "436262",
+        "title": "Virgin and Child with Saint Catherine of Alexandria",
+        "date": "ca. 1630",
+        "medium": "Oil on canvas",
+        "file": "artist_436262.jpg"
+      },
+      {
+        "id": "437828",
+        "title": "Alfonso d'Este (1486–1534), Duke of Ferrara",
+        "date": "",
+        "medium": "Oil on canvas",
+        "file": "artist_437828.jpg"
+      },
+      {
+        "id": "437830",
+        "title": "Doge Andrea Gritti (1455–1538)",
+        "date": "",
+        "medium": "Oil on canvas",
+        "file": "artist_437830.jpg"
+      },
+      {
+        "id": "436253",
+        "title": "Lucas van Uffel (died 1637)",
+        "date": "ca. 1622",
+        "medium": "Oil on canvas",
+        "file": "artist_436253.jpg"
+      },
+      {
+        "id": "437535",
+        "title": "Venus and Adonis",
+        "date": "probably mid-1630s",
+        "medium": "Oil on canvas",
+        "file": "artist_437535.jpg"
+      },
+      {
+        "id": "436252",
+        "title": "James Stuart (1612–1655), Duke of Richmond and Lennox",
+        "date": "ca. 1633–35",
+        "medium": "Oil on canvas",
+        "file": "artist_436252.jpg"
+      },
+      {
+        "id": "440393",
+        "title": "The Baptism of Christ",
+        "date": "ca. 1590",
+        "medium": "Oil on canvas",
+        "file": "artist_440393.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "435853",
+        "title": "The Coronation of the Virgin",
+        "date": "after 1595",
+        "medium": "Oil on canvas",
+        "file": "artist_435853.jpg"
+      },
+      {
+        "id": "435826",
+        "title": "The Love Song",
+        "date": "1868–77",
+        "medium": "Oil on canvas",
+        "file": "artist_435826.jpg"
+      }
+    ]
+  },
+  "El Greco": {
+    "display_name": "El Greco (Domenikos Theotokopoulos)",
+    "nationality": "Greek",
+    "begin_date": "1540",
+    "end_date": "1614",
+    "artworks": [
+      {
+        "id": "436570",
+        "title": "The Adoration of the Shepherds",
+        "date": "ca. 1605–10",
+        "medium": "Oil on canvas",
+        "file": "artist_436570.jpg"
+      },
+      {
+        "id": "436575",
+        "title": "View of Toledo",
+        "date": "ca. 1599–1600",
+        "medium": "Oil on canvas",
+        "file": "artist_436575.jpg"
+      },
+      {
+        "id": "459087",
+        "title": "Christ Carrying the Cross",
+        "date": "ca. 1577–87",
+        "medium": "Oil on canvas",
+        "file": "artist_459087.jpg"
+      },
+      {
+        "id": "459088",
+        "title": "Saint Jerome as Scholar",
+        "date": "ca. 1610",
+        "medium": "Oil on canvas",
+        "file": "artist_459088.jpg"
+      },
+      {
+        "id": "436576",
+        "title": "The Vision of Saint John",
+        "date": "ca. 1608–14",
+        "medium": "Oil on canvas",
+        "file": "artist_436576.jpg"
+      },
+      {
+        "id": "436572",
+        "title": "Christ Healing the Blind",
+        "date": "ca. 1570",
+        "medium": "Oil on canvas",
+        "file": "artist_436572.jpg"
+      },
+      {
+        "id": "436573",
+        "title": "Cardinal Fernando Niño de Guevara (1541–1609)",
+        "date": "ca. 1600",
+        "medium": "Oil on canvas",
+        "file": "artist_436573.jpg"
+      },
+      {
+        "id": "436574",
+        "title": "Portrait of an Old Man",
+        "date": "ca. 1595–1600",
+        "medium": "Oil on canvas",
+        "file": "artist_436574.jpg"
+      },
+      {
+        "id": "436571",
+        "title": "The Adoration of the Shepherds",
+        "date": "ca. 1612–14",
+        "medium": "Oil on canvas",
+        "file": "artist_436571.jpg"
+      },
+      {
+        "id": "436577",
+        "title": "Saint Andrew",
+        "date": "ca. 1610",
+        "medium": "Oil on canvas",
+        "file": "artist_436577.jpg"
+      },
+      {
+        "id": "437969",
+        "title": "Battle between Christians and Muslims at El Sotillo",
+        "date": "ca. 1637–39",
+        "medium": "Oil on canvas",
+        "file": "artist_437969.jpg"
+      },
+      {
+        "id": "437819",
+        "title": "Doge Alvise Mocenigo (1507–1577) Presented to the Redeemer",
+        "date": "probably 1577",
+        "medium": "Oil on canvas",
+        "file": "artist_437819.jpg"
+      },
+      {
+        "id": "652416",
+        "title": "The Crucifixion",
+        "date": "ca. 1625–30",
+        "medium": "Oil on canvas",
+        "file": "artist_652416.jpg"
+      },
+      {
+        "id": "438688",
+        "title": "Saint Francis",
+        "date": "ca. 1600–1604",
+        "medium": "Oil on canvas",
+        "file": "artist_438688.jpg"
+      },
+      {
+        "id": "437053",
+        "title": "The Afternoon Meal (La Merienda)",
+        "date": "ca. 1772",
+        "medium": "Oil on canvas",
+        "file": "artist_437053.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      }
+    ]
+  },
+  "Poussin": {
+    "display_name": "Nicolas Poussin",
+    "nationality": "French",
+    "begin_date": "1594",
+    "end_date": "1665",
+    "artworks": [
+      {
+        "id": "437326",
+        "title": "Blind Orion Searching for the Rising Sun",
+        "date": "1658",
+        "medium": "Oil on canvas",
+        "file": "artist_437326.jpg"
+      },
+      {
+        "id": "437329",
+        "title": "The Abduction of the Sabine Women",
+        "date": "probably 1633–34",
+        "medium": "Oil on canvas",
+        "file": "artist_437329.jpg"
+      },
+      {
+        "id": "437328",
+        "title": "Midas Washing at the Source of the Pactolus",
+        "date": "ca. 1627",
+        "medium": "Oil on canvas",
+        "file": "artist_437328.jpg"
+      },
+      {
+        "id": "437330",
+        "title": "Saints Peter and John Healing the Lame Man",
+        "date": "1655",
+        "medium": "Oil on canvas",
+        "file": "artist_437330.jpg"
+      },
+      {
+        "id": "442488",
+        "title": "The Agony in the Garden",
+        "date": "1626–27",
+        "medium": "Oil on copper",
+        "file": "artist_442488.jpg"
+      },
+      {
+        "id": "438025",
+        "title": "The Holy Family with Saint John the Baptist",
+        "date": "ca. 1627",
+        "medium": "Oil on canvas",
+        "file": "artist_438025.jpg"
+      },
+      {
+        "id": "437327",
+        "title": "The Companions of Rinaldo",
+        "date": "ca. 1633",
+        "medium": "Oil on canvas",
+        "file": "artist_437327.jpg"
+      },
+      {
+        "id": "435877",
+        "title": "Mont Sainte-Victoire and the Viaduct of the Arc River Valley",
+        "date": "1882–85",
+        "medium": "Oil on canvas",
+        "file": "artist_435877.jpg"
+      },
+      {
+        "id": "435756",
+        "title": "A Classical Landscape",
+        "date": "probably 1660s",
+        "medium": "Oil on canvas",
+        "file": "artist_435756.jpg"
+      },
+      {
+        "id": "436455",
+        "title": "Evening: Landscape with an Aqueduct",
+        "date": "1818",
+        "medium": "Oil on canvas",
+        "file": "artist_436455.jpg"
+      },
+      {
+        "id": "439844",
+        "title": "Heroic Landscape with Rainbow",
+        "date": "1824",
+        "medium": "Oil on canvas",
+        "file": "artist_439844.jpg"
+      },
+      {
+        "id": "435908",
+        "title": "The Trojan Women Setting Fire to Their Fleet",
+        "date": "ca. 1643",
+        "medium": "Oil on canvas",
+        "file": "artist_435908.jpg"
+      },
+      {
+        "id": "437331",
+        "title": "Orpheus and Eurydice",
+        "date": "",
+        "medium": "Oil on canvas",
+        "file": "artist_437331.jpg"
+      },
+      {
+        "id": "436105",
+        "title": "The Death of Socrates",
+        "date": "1787",
+        "medium": "Oil on canvas",
+        "file": "artist_436105.jpg"
+      },
+      {
+        "id": "436120",
+        "title": "The Old Italian Woman",
+        "date": "1857",
+        "medium": "Oil on canvas",
+        "file": "artist_436120.jpg"
+      },
+      {
+        "id": "435909",
+        "title": "View of La Crescenza",
+        "date": "1648–50",
+        "medium": "Oil on canvas",
+        "file": "artist_435909.jpg"
+      },
+      {
+        "id": "436229",
+        "title": "Imaginary Landscape",
+        "date": "",
+        "medium": "Oil on canvas",
+        "file": "artist_436229.jpg"
+      },
+      {
+        "id": "503625",
+        "title": "Harpsichord",
+        "date": "late 17th century",
+        "medium": "Wood, paint, various materials",
+        "file": "artist_503625.jpg"
+      }
+    ]
+  },
+  "David Jacques-Louis": {
+    "display_name": "Jacques Louis David",
+    "nationality": "French",
+    "begin_date": "1748",
+    "end_date": "1825",
+    "artworks": [
+      {
+        "id": "436105",
+        "title": "The Death of Socrates",
+        "date": "1787",
+        "medium": "Oil on canvas",
+        "file": "artist_436105.jpg"
+      },
+      {
+        "id": "436106",
+        "title": "Antoine Laurent Lavoisier (1743–1794) and Marie Anne Lavoisier (Marie Anne Pierrette Paulze, 1758–1836)",
+        "date": "1788",
+        "medium": "Oil on canvas",
+        "file": "artist_436106.jpg"
+      },
+      {
+        "id": "436107",
+        "title": "General Étienne-Maurice Gérard (1773–1852)",
+        "date": "1816",
+        "medium": "Oil on canvas",
+        "file": "artist_436107.jpg"
+      },
+      {
+        "id": "436096",
+        "title": "The Annunciation",
+        "date": "1506",
+        "medium": "Oil on wood",
+        "file": "artist_436096.jpg"
+      },
+      {
+        "id": "438099",
+        "title": "The Public Viewing David's Coronation at the Louvre",
+        "date": "1810",
+        "medium": "Oil on canvas",
+        "file": "artist_438099.jpg"
+      },
+      {
+        "id": "437973",
+        "title": "Ponte San Rocco and Waterfalls, Tivoli",
+        "date": "ca. 1810–20",
+        "medium": "Oil on canvas",
+        "file": "artist_437973.jpg"
+      },
+      {
+        "id": "437903",
+        "title": "Marie Joséphine Charlotte du Val d'Ognes (1786–1868)",
+        "date": "1801",
+        "medium": "Oil on canvas",
+        "file": "artist_437903.jpg"
+      },
+      {
+        "id": "436108",
+        "title": "Head of a Child",
+        "date": "",
+        "medium": "Oil on canvas",
+        "file": "artist_436108.jpg"
+      },
+      {
+        "id": "435888",
+        "title": "Soap Bubbles",
+        "date": "ca. 1733–34",
+        "medium": "Oil on canvas",
+        "file": "artist_435888.jpg"
+      },
+      {
+        "id": "441969",
+        "title": "Charles Maurice de Talleyrand Périgord (1754–1838), Prince de Bénévent",
+        "date": "1808",
+        "medium": "Oil on canvas",
+        "file": "artist_441969.jpg"
+      },
+      {
+        "id": "437831",
+        "title": "Jean Marc Nattier (1685–1766)",
+        "date": "ca. 1740",
+        "medium": "Oil on canvas",
+        "file": "artist_437831.jpg"
+      },
+      {
+        "id": "856295",
+        "title": "Bust-Length Study of a Man",
+        "date": "1848",
+        "medium": "Oil on paper, laid down on canvas",
+        "file": "artist_856295.jpg"
+      },
+      {
+        "id": "436703",
+        "title": "Madame Jacques-Louis Leblanc (Françoise Poncelle, 1788–1839)",
+        "date": "1823",
+        "medium": "Oil on canvas",
+        "file": "artist_436703.jpg"
+      },
+      {
+        "id": "438779",
+        "title": "A Peasant Family",
+        "date": "ca. 1640–48",
+        "medium": "Oil on copper",
+        "file": "artist_438779.jpg"
+      },
+      {
+        "id": "435650",
+        "title": "Madame Philippe Panon Desbassayns de Richemont (Jeanne Eglé Mourgue, 1778–1855) and Her Son, Eugène (1800–1859)",
+        "date": "1802",
+        "medium": "Oil on canvas",
+        "file": "artist_435650.jpg"
+      },
+      {
+        "id": "436946",
+        "title": "The Brioche",
+        "date": "1870",
+        "medium": "Oil on canvas",
+        "file": "artist_436946.jpg"
+      }
+    ]
+  },
+  "Courbet": {
+    "display_name": "Gustave Courbet",
+    "nationality": "French",
+    "begin_date": "1819",
+    "end_date": "1877",
+    "artworks": [
+      {
+        "id": "438820",
+        "title": "Young Ladies of the Village",
+        "date": "1851–52",
+        "medium": "Oil on canvas",
+        "file": "artist_438820.jpg"
+      },
+      {
+        "id": "436001",
+        "title": "Jo, La Belle Irlandaise",
+        "date": "1865–66",
+        "medium": "Oil on canvas",
+        "file": "artist_436001.jpg"
+      },
+      {
+        "id": "436015",
+        "title": "Louis Gueymard (1822–1880) as Robert le Diable",
+        "date": "1857",
+        "medium": "Oil on canvas",
+        "file": "artist_436015.jpg"
+      },
+      {
+        "id": "436002",
+        "title": "Woman with a Parrot",
+        "date": "1866",
+        "medium": "Oil on canvas",
+        "file": "artist_436002.jpg"
+      },
+      {
+        "id": "436000",
+        "title": "Madame Frederic Breyer (Fanny Hélène Van Bruyssel, 1830–1894)",
+        "date": "1858",
+        "medium": "Oil on canvas",
+        "file": "artist_436000.jpg"
+      },
+      {
+        "id": "436023",
+        "title": "The Source of the Loue",
+        "date": "1864",
+        "medium": "Oil on canvas",
+        "file": "artist_436023.jpg"
+      },
+      {
+        "id": "436007",
+        "title": "After the Hunt",
+        "date": "ca. 1859",
+        "medium": "Oil on canvas",
+        "file": "artist_436007.jpg"
+      },
+      {
+        "id": "436004",
+        "title": "The Woman in the Waves",
+        "date": "1868",
+        "medium": "Oil on canvas",
+        "file": "artist_436004.jpg"
+      },
+      {
+        "id": "436016",
+        "title": "Madame Auguste Cuoq (Mathilde Desportes, 1827–1910)",
+        "date": "ca. 1852–57",
+        "medium": "Oil on canvas",
+        "file": "artist_436016.jpg"
+      },
+      {
+        "id": "436005",
+        "title": "The Calm Sea",
+        "date": "1869",
+        "medium": "Oil on canvas",
+        "file": "artist_436005.jpg"
+      },
+      {
+        "id": "436014",
+        "title": "Hunting Dogs with Dead Hare",
+        "date": "1857",
+        "medium": "Oil on canvas",
+        "file": "artist_436014.jpg"
+      },
+      {
+        "id": "436003",
+        "title": "The Young Bather",
+        "date": "1866",
+        "medium": "Oil on canvas",
+        "file": "artist_436003.jpg"
+      },
+      {
+        "id": "436024",
+        "title": "Woman in a Riding Habit (L'Amazone)",
+        "date": "ca. 1855–59",
+        "medium": "Oil on canvas",
+        "file": "artist_436024.jpg"
+      },
+      {
+        "id": "436964",
+        "title": "Young Lady in 1866",
+        "date": "1866",
+        "medium": "Oil on canvas",
+        "file": "artist_436964.jpg"
+      },
+      {
+        "id": "436012",
+        "title": "The Fishing Boat",
+        "date": "1865",
+        "medium": "Oil on canvas",
+        "file": "artist_436012.jpg"
+      },
+      {
+        "id": "436008",
+        "title": "Alphonse Promayet (1822–1872)",
+        "date": "1851",
+        "medium": "Oil on canvas",
+        "file": "artist_436008.jpg"
+      },
+      {
+        "id": "436006",
+        "title": "Marine: The Waterspout",
+        "date": "1870",
+        "medium": "Oil on canvas",
+        "file": "artist_436006.jpg"
+      },
+      {
+        "id": "436017",
+        "title": "Monsieur Suisse",
+        "date": "1861",
+        "medium": "Oil on canvas",
+        "file": "artist_436017.jpg"
+      },
+      {
+        "id": "436019",
+        "title": "Portrait of a Man",
+        "date": "probably ca. 1862",
+        "medium": "Oil on canvas",
+        "file": "artist_436019.jpg"
+      },
+      {
+        "id": "436022",
+        "title": "The Source",
+        "date": "1862",
+        "medium": "Oil on canvas",
+        "file": "artist_436022.jpg"
+      }
+    ]
+  },
+  "Millet": {
+    "display_name": "Jean-François Millet",
+    "nationality": "French",
+    "begin_date": "1814",
+    "end_date": "1875",
+    "artworks": [
+      {
+        "id": "437099",
+        "title": "Woman with a Rake",
+        "date": "probably 1856–57",
+        "medium": "Oil on canvas",
+        "file": "artist_437099.jpg"
+      },
+      {
+        "id": "437097",
+        "title": "Haystacks: Autumn",
+        "date": "ca. 1874",
+        "medium": "Oil on canvas",
+        "file": "artist_437097.jpg"
+      },
+      {
+        "id": "437094",
+        "title": "Autumn Landscape with a Flock of Turkeys",
+        "date": "1872–73",
+        "medium": "Oil on canvas",
+        "file": "artist_437094.jpg"
+      },
+      {
+        "id": "438616",
+        "title": "Retreat from the Storm",
+        "date": "ca. 1846",
+        "medium": "Oil on canvas",
+        "file": "artist_438616.jpg"
+      },
+      {
+        "id": "437304",
+        "title": "Two Young Peasant Women",
+        "date": "1891–92",
+        "medium": "Oil on canvas",
+        "file": "artist_437304.jpg"
+      },
+      {
+        "id": "437095",
+        "title": "Calling the Cows Home",
+        "date": "ca. 1872",
+        "medium": "Oil on wood",
+        "file": "artist_437095.jpg"
+      },
+      {
+        "id": "437098",
+        "title": "Shepherdess Seated on a Rock",
+        "date": "1856",
+        "medium": "Oil on wood",
+        "file": "artist_437098.jpg"
+      },
+      {
+        "id": "437093",
+        "title": "Mercury and Battus",
+        "date": "",
+        "medium": "Oil on canvas",
+        "file": "artist_437093.jpg"
+      },
+      {
+        "id": "437096",
+        "title": "Garden Scene",
+        "date": "1854",
+        "medium": "Oil on canvas",
+        "file": "artist_437096.jpg"
+      },
+      {
+        "id": "436526",
+        "title": "First Steps, after Millet",
+        "date": "1890",
+        "medium": "Oil on canvas",
+        "file": "artist_436526.jpg"
+      },
+      {
+        "id": "437656",
+        "title": "The Gardener",
+        "date": "1882–83",
+        "medium": "Oil on wood",
+        "file": "artist_437656.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "438816",
+        "title": "The Forest in Winter at Sunset",
+        "date": "ca. 1846–67",
+        "medium": "Oil on canvas",
+        "file": "artist_438816.jpg"
+      },
+      {
+        "id": "459092",
+        "title": "Trees and Houses Near the Jas de Bouffan",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_459092.jpg"
+      },
+      {
+        "id": "437497",
+        "title": "The Flagellation; (reverse) The Madonna of Mercy",
+        "date": "ca. 1540",
+        "medium": "Distemper and oil(?) on canvas",
+        "file": "artist_437497.jpg"
+      },
+      {
+        "id": "195456",
+        "title": "The Backgammon Players",
+        "date": "1861",
+        "medium": "Painted pine, oil paint on leather, brass, copper",
+        "file": "artist_195456.jpg"
+      },
+      {
+        "id": "11380",
+        "title": "Nocturne",
+        "date": "ca. 1885",
+        "medium": "Watercolor, gouache, and charcoal on off-white wove paper\r adhered to wove paper",
+        "file": "artist_11380.jpg"
+      }
+    ]
+  },
+  "Corot": {
+    "display_name": "Camille Corot",
+    "nationality": "French",
+    "begin_date": "1796",
+    "end_date": "1875",
+    "artworks": [
+      {
+        "id": "435962",
+        "title": "Hagar in the Wilderness",
+        "date": "1835",
+        "medium": "Oil on canvas",
+        "file": "artist_435962.jpg"
+      },
+      {
+        "id": "459093",
+        "title": "Diana and Actaeon (Diana Surprised in Her Bath)",
+        "date": "1836",
+        "medium": "Oil on canvas",
+        "file": "artist_459093.jpg"
+      },
+      {
+        "id": "435976",
+        "title": "The Letter",
+        "date": "ca. 1865",
+        "medium": "Oil on wood",
+        "file": "artist_435976.jpg"
+      },
+      {
+        "id": "435984",
+        "title": "Sibylle",
+        "date": "ca. 1870",
+        "medium": "Oil on canvas",
+        "file": "artist_435984.jpg"
+      },
+      {
+        "id": "435990",
+        "title": "A Woman Gathering Faggots at Ville-d'Avray",
+        "date": "ca. 1871–74",
+        "medium": "Oil on canvas",
+        "file": "artist_435990.jpg"
+      },
+      {
+        "id": "435961",
+        "title": "Toussaint Lemaistre (1807/8–1888)",
+        "date": "1833",
+        "medium": "Oil on canvas",
+        "file": "artist_435961.jpg"
+      },
+      {
+        "id": "435969",
+        "title": "The Ferryman",
+        "date": "ca. 1865",
+        "medium": "Oil on canvas",
+        "file": "artist_435969.jpg"
+      },
+      {
+        "id": "435975",
+        "title": "A Lane through the Trees",
+        "date": "ca. 1870–73",
+        "medium": "Oil on canvas",
+        "file": "artist_435975.jpg"
+      },
+      {
+        "id": "435963",
+        "title": "Bacchante by the Sea",
+        "date": "1865",
+        "medium": "Oil on wood",
+        "file": "artist_435963.jpg"
+      },
+      {
+        "id": "435989",
+        "title": "The Banks of the Seine at Conflans",
+        "date": "ca. 1865–70",
+        "medium": "Oil on canvas",
+        "file": "artist_435989.jpg"
+      },
+      {
+        "id": "435967",
+        "title": "The Burning of Sodom (formerly The Destruction of Sodom)",
+        "date": "1843 and 1857",
+        "medium": "Oil on canvas",
+        "file": "artist_435967.jpg"
+      },
+      {
+        "id": "435981",
+        "title": "Reverie",
+        "date": "1857 or later",
+        "medium": "Oil on wood",
+        "file": "artist_435981.jpg"
+      },
+      {
+        "id": "437078",
+        "title": "Waterfall at Mont-Dore",
+        "date": "1818",
+        "medium": "Oil on canvas",
+        "file": "artist_437078.jpg"
+      },
+      {
+        "id": "435991",
+        "title": "A Woman Reading",
+        "date": "1869 and 1870",
+        "medium": "Oil on canvas",
+        "file": "artist_435991.jpg"
+      },
+      {
+        "id": "435972",
+        "title": "Honfleur: Calvary",
+        "date": "ca. 1830",
+        "medium": "Oil on wood",
+        "file": "artist_435972.jpg"
+      },
+      {
+        "id": "435988",
+        "title": "Ville-d'Avray",
+        "date": "1870",
+        "medium": "Oil on canvas",
+        "file": "artist_435988.jpg"
+      },
+      {
+        "id": "437991",
+        "title": "The Curious Little Girl",
+        "date": "1860–64",
+        "medium": "Oil on cardboard, laid down on wood",
+        "file": "artist_437991.jpg"
+      },
+      {
+        "id": "435965",
+        "title": "Bacchante in a Landscape",
+        "date": "1865–70",
+        "medium": "Oil on canvas",
+        "file": "artist_435965.jpg"
+      },
+      {
+        "id": "436141",
+        "title": "The Dancing Class",
+        "date": "ca. 1870",
+        "medium": "Oil on wood",
+        "file": "artist_436141.jpg"
+      },
+      {
+        "id": "438635",
+        "title": "Waterfall at Terni",
+        "date": "1826",
+        "medium": "Oil on paper, laid down on wood",
+        "file": "artist_438635.jpg"
+      }
+    ]
+  },
+  "Morisot": {
+    "display_name": "Berthe Morisot",
+    "nationality": "French",
+    "begin_date": "1841",
+    "end_date": "1895",
+    "artworks": [
+      {
+        "id": "438009",
+        "title": "The Pink Dress (Albertie-Marguerite Carré, later Madame Ferdinand-Henri Himmes, 1854–1935)",
+        "date": "ca. 1870",
+        "medium": "Oil on canvas",
+        "file": "artist_438009.jpg"
+      },
+      {
+        "id": "437159",
+        "title": "Young Woman Knitting",
+        "date": "ca. 1883",
+        "medium": "Oil on canvas",
+        "file": "artist_437159.jpg"
+      },
+      {
+        "id": "436149",
+        "title": "Madame Théodore Gobillard (Yves Morisot, 1838–1893)",
+        "date": "1869",
+        "medium": "Oil on canvas",
+        "file": "artist_436149.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "459092",
+        "title": "Trees and Houses Near the Jas de Bouffan",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_459092.jpg"
+      },
+      {
+        "id": "437497",
+        "title": "The Flagellation; (reverse) The Madonna of Mercy",
+        "date": "ca. 1540",
+        "medium": "Distemper and oil(?) on canvas",
+        "file": "artist_437497.jpg"
+      },
+      {
+        "id": "195456",
+        "title": "The Backgammon Players",
+        "date": "1861",
+        "medium": "Painted pine, oil paint on leather, brass, copper",
+        "file": "artist_195456.jpg"
+      },
+      {
+        "id": "11380",
+        "title": "Nocturne",
+        "date": "ca. 1885",
+        "medium": "Watercolor, gouache, and charcoal on off-white wove paper\r adhered to wove paper",
+        "file": "artist_11380.jpg"
+      },
+      {
+        "id": "436946",
+        "title": "The Brioche",
+        "date": "1870",
+        "medium": "Oil on canvas",
+        "file": "artist_436946.jpg"
+      },
+      {
+        "id": "436039",
+        "title": "The Martyrdom of Saint Barbara",
+        "date": "ca. 1510",
+        "medium": "Oil on linden",
+        "file": "artist_436039.jpg"
+      },
+      {
+        "id": "436965",
+        "title": "The Monet Family in Their Garden at Argenteuil",
+        "date": "1874",
+        "medium": "Oil on canvas",
+        "file": "artist_436965.jpg"
+      },
+      {
+        "id": "10777",
+        "title": "Landscape with Shepherd",
+        "date": "1852",
+        "medium": "Oil on canvas",
+        "file": "artist_10777.jpg"
+      },
+      {
+        "id": "435707",
+        "title": "Roadside Halt",
+        "date": "1826",
+        "medium": "Oil on canvas",
+        "file": "artist_435707.jpg"
+      },
+      {
+        "id": "459023",
+        "title": "Madonna and Child",
+        "date": "ca. 1470",
+        "medium": "Tempera, oil, and gold on wood",
+        "file": "artist_459023.jpg"
+      },
+      {
+        "id": "435990",
+        "title": "A Woman Gathering Faggots at Ville-d'Avray",
+        "date": "ca. 1871–74",
+        "medium": "Oil on canvas",
+        "file": "artist_435990.jpg"
+      },
+      {
+        "id": "437434",
+        "title": "In the Meadow",
+        "date": "1888–92",
+        "medium": "Oil on canvas",
+        "file": "artist_437434.jpg"
+      }
+    ]
+  },
+  "Sisley": {
+    "display_name": "Alfred Sisley",
+    "nationality": "British",
+    "begin_date": "1839",
+    "end_date": "1899",
+    "artworks": [
+      {
+        "id": "437682",
+        "title": "View of Marly-le-Roi from Coeur-Volant",
+        "date": "1876",
+        "medium": "Oil on canvas",
+        "file": "artist_437682.jpg"
+      },
+      {
+        "id": "437680",
+        "title": "The Bridge at Villeneuve-la-Garenne",
+        "date": "1872",
+        "medium": "Oil on canvas",
+        "file": "artist_437680.jpg"
+      },
+      {
+        "id": "437685",
+        "title": "The Road from Versailles to Louveciennes",
+        "date": "probably 1879",
+        "medium": "Oil on canvas",
+        "file": "artist_437685.jpg"
+      },
+      {
+        "id": "437683",
+        "title": "Sahurs Meadows in Morning Sun",
+        "date": "1894",
+        "medium": "Oil on canvas",
+        "file": "artist_437683.jpg"
+      },
+      {
+        "id": "901617",
+        "title": "The Seine at Bougival",
+        "date": "1876",
+        "medium": "Oil on canvas",
+        "file": "artist_901617.jpg"
+      },
+      {
+        "id": "459121",
+        "title": "Allée of Chestnut Trees",
+        "date": "1878",
+        "medium": "Oil on canvas",
+        "file": "artist_459121.jpg"
+      },
+      {
+        "id": "437686",
+        "title": "Rue Eugène Moussoir at Moret: Winter",
+        "date": "1891",
+        "medium": "Oil on canvas",
+        "file": "artist_437686.jpg"
+      },
+      {
+        "id": "437684",
+        "title": "The Road from Moret to Saint-Mammès",
+        "date": "1883–85",
+        "medium": "Oil on canvas",
+        "file": "artist_437684.jpg"
+      },
+      {
+        "id": "437299",
+        "title": "Jalais Hill, Pontoise",
+        "date": "1867",
+        "medium": "Oil on canvas",
+        "file": "artist_437299.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "459092",
+        "title": "Trees and Houses Near the Jas de Bouffan",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_459092.jpg"
+      },
+      {
+        "id": "437497",
+        "title": "The Flagellation; (reverse) The Madonna of Mercy",
+        "date": "ca. 1540",
+        "medium": "Distemper and oil(?) on canvas",
+        "file": "artist_437497.jpg"
+      },
+      {
+        "id": "437436",
+        "title": "A Road in Louveciennes",
+        "date": "ca. 1870",
+        "medium": "Oil on canvas",
+        "file": "artist_437436.jpg"
+      },
+      {
+        "id": "437313",
+        "title": "The Garden of the Tuileries on a Spring Morning",
+        "date": "1899",
+        "medium": "Oil on canvas",
+        "file": "artist_437313.jpg"
+      },
+      {
+        "id": "195456",
+        "title": "The Backgammon Players",
+        "date": "1861",
+        "medium": "Painted pine, oil paint on leather, brass, copper",
+        "file": "artist_195456.jpg"
+      },
+      {
+        "id": "11380",
+        "title": "Nocturne",
+        "date": "ca. 1885",
+        "medium": "Watercolor, gouache, and charcoal on off-white wove paper\r adhered to wove paper",
+        "file": "artist_11380.jpg"
+      },
+      {
+        "id": "438738",
+        "title": "Haystacks, Morning, Eragny",
+        "date": "1899",
+        "medium": "Oil on canvas",
+        "file": "artist_438738.jpg"
+      }
+    ]
+  },
+  "Cassatt": {
+    "display_name": "Edgar Degas",
+    "nationality": "French",
+    "begin_date": "1834",
+    "end_date": "1917",
+    "artworks": [
+      {
+        "id": "436141",
+        "title": "The Dancing Class",
+        "date": "ca. 1870",
+        "medium": "Oil on wood",
+        "file": "artist_436141.jpg"
+      },
+      {
+        "id": "437315",
+        "title": "Fan Mount: The Cabbage Gatherers",
+        "date": "ca. 1878–79",
+        "medium": "Gouache on silk",
+        "file": "artist_437315.jpg"
+      },
+      {
+        "id": "436000",
+        "title": "Madame Frederic Breyer (Fanny Hélène Van Bruyssel, 1830–1894)",
+        "date": "1858",
+        "medium": "Oil on canvas",
+        "file": "artist_436000.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "459092",
+        "title": "Trees and Houses Near the Jas de Bouffan",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_459092.jpg"
+      },
+      {
+        "id": "437497",
+        "title": "The Flagellation; (reverse) The Madonna of Mercy",
+        "date": "ca. 1540",
+        "medium": "Distemper and oil(?) on canvas",
+        "file": "artist_437497.jpg"
+      },
+      {
+        "id": "195456",
+        "title": "The Backgammon Players",
+        "date": "1861",
+        "medium": "Painted pine, oil paint on leather, brass, copper",
+        "file": "artist_195456.jpg"
+      },
+      {
+        "id": "11380",
+        "title": "Nocturne",
+        "date": "ca. 1885",
+        "medium": "Watercolor, gouache, and charcoal on off-white wove paper\r adhered to wove paper",
+        "file": "artist_11380.jpg"
+      },
+      {
+        "id": "436039",
+        "title": "The Martyrdom of Saint Barbara",
+        "date": "ca. 1510",
+        "medium": "Oil on linden",
+        "file": "artist_436039.jpg"
+      },
+      {
+        "id": "436947",
+        "title": "Boating",
+        "date": "1874",
+        "medium": "Oil on canvas",
+        "file": "artist_436947.jpg"
+      },
+      {
+        "id": "436024",
+        "title": "Woman in a Riding Habit (L'Amazone)",
+        "date": "ca. 1855–59",
+        "medium": "Oil on canvas",
+        "file": "artist_436024.jpg"
+      }
+    ]
+  },
+  "Toulouse-Lautrec": {
+    "display_name": "Henri de Toulouse-Lautrec",
+    "nationality": "French",
+    "begin_date": "1864",
+    "end_date": "1901",
+    "artworks": [
+      {
+        "id": "437835",
+        "title": "The Englishman (William Tom Warrener, 1861–1934) at the Moulin Rouge",
+        "date": "1892",
+        "medium": "Oil on cardboard",
+        "file": "artist_437835.jpg"
+      },
+      {
+        "id": "437837",
+        "title": "The Sofa",
+        "date": "ca. 1894–96",
+        "medium": "Oil on cardboard",
+        "file": "artist_437837.jpg"
+      },
+      {
+        "id": "437836",
+        "title": "Albert (René) Grenier (1858–1925)",
+        "date": "1887",
+        "medium": "Oil on wood",
+        "file": "artist_437836.jpg"
+      },
+      {
+        "id": "437838",
+        "title": "Woman in the Garden of Monsieur Forest",
+        "date": "1889–91",
+        "medium": "Oil on canvas",
+        "file": "artist_437838.jpg"
+      },
+      {
+        "id": "438018",
+        "title": "Woman before a Mirror",
+        "date": "1897",
+        "medium": "Oil on cardboard",
+        "file": "artist_438018.jpg"
+      },
+      {
+        "id": "438016",
+        "title": "The Streetwalker",
+        "date": "ca. 1890–91",
+        "medium": "Oil on cardboard",
+        "file": "artist_438016.jpg"
+      },
+      {
+        "id": "437839",
+        "title": "Émilie",
+        "date": "late 1890s",
+        "medium": "Oil on wood",
+        "file": "artist_437839.jpg"
+      },
+      {
+        "id": "437834",
+        "title": "Mademoiselle Nys",
+        "date": "1899",
+        "medium": "Oil on unprimed wood",
+        "file": "artist_437834.jpg"
+      },
+      {
+        "id": "438820",
+        "title": "Young Ladies of the Village",
+        "date": "1851–52",
+        "medium": "Oil on canvas",
+        "file": "artist_438820.jpg"
+      },
+      {
+        "id": "440464",
+        "title": "Pope Benedict XIV (Prospero Lambertini, 1675–1758)",
+        "date": "1746",
+        "medium": "Oil on canvas",
+        "file": "artist_440464.jpg"
+      },
+      {
+        "id": "437299",
+        "title": "Jalais Hill, Pontoise",
+        "date": "1867",
+        "medium": "Oil on canvas",
+        "file": "artist_437299.jpg"
+      },
+      {
+        "id": "437432",
+        "title": "Tilla Durieux (Ottilie Godeffroy, 1880–1971)",
+        "date": "1914",
+        "medium": "Oil on canvas",
+        "file": "artist_437432.jpg"
+      },
+      {
+        "id": "436095",
+        "title": "The Third-Class Carriage",
+        "date": "1864",
+        "medium": "Oil on canvas",
+        "file": "artist_436095.jpg"
+      },
+      {
+        "id": "436964",
+        "title": "Young Lady in 1866",
+        "date": "1866",
+        "medium": "Oil on canvas",
+        "file": "artist_436964.jpg"
+      },
+      {
+        "id": "436144",
+        "title": "James-Jacques-Joseph Tissot (1836–1902)",
+        "date": "ca. 1867–68",
+        "medium": "Oil on canvas",
+        "file": "artist_436144.jpg"
+      }
+    ]
+  },
+  "Cezanne": {
+    "display_name": "Paul Cézanne",
+    "nationality": "French",
+    "begin_date": "1839",
+    "end_date": "1906",
+    "artworks": [
+      {
+        "id": "459092",
+        "title": "Trees and Houses Near the Jas de Bouffan",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_459092.jpg"
+      },
+      {
+        "id": "435877",
+        "title": "Mont Sainte-Victoire and the Viaduct of the Arc River Valley",
+        "date": "1882–85",
+        "medium": "Oil on canvas",
+        "file": "artist_435877.jpg"
+      },
+      {
+        "id": "435885",
+        "title": "View of the Domaine Saint-Joseph",
+        "date": "late 1880s",
+        "medium": "Oil on canvas",
+        "file": "artist_435885.jpg"
+      },
+      {
+        "id": "435882",
+        "title": "Still Life with Apples and a Pot of Primroses",
+        "date": "ca. 1890",
+        "medium": "Oil on canvas",
+        "file": "artist_435882.jpg"
+      },
+      {
+        "id": "435876",
+        "title": "Madame Cézanne (Hortense Fiquet, 1850–1922) in a Red Dress",
+        "date": "1888–90",
+        "medium": "Oil on canvas",
+        "file": "artist_435876.jpg"
+      },
+      {
+        "id": "435868",
+        "title": "The Card Players",
+        "date": "1890–92",
+        "medium": "Oil on canvas",
+        "file": "artist_435868.jpg"
+      },
+      {
+        "id": "435872",
+        "title": "The Gulf of Marseille Seen from L'Estaque",
+        "date": "ca. 1885",
+        "medium": "Oil on canvas",
+        "file": "artist_435872.jpg"
+      },
+      {
+        "id": "437990",
+        "title": "Seated Peasant",
+        "date": "ca. 1892–96",
+        "medium": "Oil on canvas",
+        "file": "artist_437990.jpg"
+      },
+      {
+        "id": "437989",
+        "title": "Dish of Apples",
+        "date": "ca. 1876–77",
+        "medium": "Oil on canvas",
+        "file": "artist_437989.jpg"
+      },
+      {
+        "id": "437999",
+        "title": "Still Life with Teapot and Fruit",
+        "date": "1896",
+        "medium": "Oil on canvas",
+        "file": "artist_437999.jpg"
+      },
+      {
+        "id": "435875",
+        "title": "Madame Cézanne (Hortense Fiquet, 1850–1922) in the Conservatory",
+        "date": "1891",
+        "medium": "Oil on canvas",
+        "file": "artist_435875.jpg"
+      },
+      {
+        "id": "435867",
+        "title": "Bathers",
+        "date": "1874–75",
+        "medium": "Oil on canvas",
+        "file": "artist_435867.jpg"
+      },
+      {
+        "id": "435866",
+        "title": "Apples",
+        "date": "1878–79",
+        "medium": "Oil on canvas",
+        "file": "artist_435866.jpg"
+      },
+      {
+        "id": "435871",
+        "title": "Gardanne",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_435871.jpg"
+      },
+      {
+        "id": "435874",
+        "title": "The House with the Cracked Walls",
+        "date": "1892–94",
+        "medium": "Oil on canvas",
+        "file": "artist_435874.jpg"
+      },
+      {
+        "id": "435883",
+        "title": "Still Life with Apples and Pears",
+        "date": "ca. 1891–92",
+        "medium": "Oil on canvas",
+        "file": "artist_435883.jpg"
+      },
+      {
+        "id": "435879",
+        "title": "The Pool at Jas de Bouffan",
+        "date": "ca. 1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_435879.jpg"
+      },
+      {
+        "id": "435881",
+        "title": "Still Life with a Ginger Jar and Eggplants",
+        "date": "1893–94",
+        "medium": "Oil on canvas",
+        "file": "artist_435881.jpg"
+      },
+      {
+        "id": "435884",
+        "title": "Still Life with Jar, Cup, and Apples",
+        "date": "ca. 1877",
+        "medium": "Oil on canvas",
+        "file": "artist_435884.jpg"
+      },
+      {
+        "id": "435870",
+        "title": "Antoine Dominique Sauveur Aubert (born 1817), the Artist's Uncle",
+        "date": "1866",
+        "medium": "Oil on canvas",
+        "file": "artist_435870.jpg"
+      }
+    ]
+  },
+  "Gauguin": {
+    "display_name": "Paul Gauguin",
+    "nationality": "French",
+    "begin_date": "1848",
+    "end_date": "1903",
+    "artworks": [
+      {
+        "id": "437999",
+        "title": "Still Life with Teapot and Fruit",
+        "date": "1896",
+        "medium": "Oil on canvas",
+        "file": "artist_437999.jpg"
+      },
+      {
+        "id": "438821",
+        "title": "Ia Orana Maria (Hail Mary)",
+        "date": "1891",
+        "medium": "Oil on canvas",
+        "file": "artist_438821.jpg"
+      },
+      {
+        "id": "459100",
+        "title": "Tahitian Women Bathing",
+        "date": "1892",
+        "medium": "Oil on paper, laid down on canvas",
+        "file": "artist_459100.jpg"
+      },
+      {
+        "id": "436449",
+        "title": "The Siesta",
+        "date": "ca. 1892–94",
+        "medium": "Oil on canvas",
+        "file": "artist_436449.jpg"
+      },
+      {
+        "id": "436451",
+        "title": "Tahitian Landscape",
+        "date": "1892",
+        "medium": "Oil on canvas",
+        "file": "artist_436451.jpg"
+      },
+      {
+        "id": "436446",
+        "title": "Two Tahitian Women",
+        "date": "1899",
+        "medium": "Oil on canvas",
+        "file": "artist_436446.jpg"
+      },
+      {
+        "id": "436448",
+        "title": "A Farm in Brittany",
+        "date": "ca. 1894",
+        "medium": "Oil on canvas",
+        "file": "artist_436448.jpg"
+      },
+      {
+        "id": "438001",
+        "title": "Two Women",
+        "date": "1901 or 1902",
+        "medium": "Oil on canvas",
+        "file": "artist_438001.jpg"
+      },
+      {
+        "id": "436524",
+        "title": "Sunflowers",
+        "date": "1887",
+        "medium": "Oil on canvas",
+        "file": "artist_436524.jpg"
+      },
+      {
+        "id": "438000",
+        "title": "Three Tahitian Women",
+        "date": "1896",
+        "medium": "Oil on wood",
+        "file": "artist_438000.jpg"
+      },
+      {
+        "id": "436450",
+        "title": "Still Life",
+        "date": "",
+        "medium": "Oil on canvas",
+        "file": "artist_436450.jpg"
+      },
+      {
+        "id": "437344",
+        "title": "The Shepherd's Song",
+        "date": "1891",
+        "medium": "Oil on canvas",
+        "file": "artist_437344.jpg"
+      },
+      {
+        "id": "437984",
+        "title": "La Berceuse (Woman Rocking a Cradle; Augustine-Alix Pellicot Roulin, 1851–1930)",
+        "date": "1889",
+        "medium": "Oil on canvas",
+        "file": "artist_437984.jpg"
+      },
+      {
+        "id": "436536",
+        "title": "Women Picking Olives",
+        "date": "1889",
+        "medium": "Oil on canvas",
+        "file": "artist_436536.jpg"
+      },
+      {
+        "id": "437998",
+        "title": "Olive Trees",
+        "date": "1889",
+        "medium": "Oil on canvas",
+        "file": "artist_437998.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      }
+    ]
+  },
+  "Seurat": {
+    "display_name": "Georges Seurat",
+    "nationality": "French",
+    "begin_date": "1859",
+    "end_date": "1891",
+    "artworks": [
+      {
+        "id": "437658",
+        "title": "Study for A Sunday on La Grande Jatte",
+        "date": "1884",
+        "medium": "Oil on canvas",
+        "file": "artist_437658.jpg"
+      },
+      {
+        "id": "437654",
+        "title": "Circus Sideshow (Parade de cirque)",
+        "date": "1887–88",
+        "medium": "Oil on canvas",
+        "file": "artist_437654.jpg"
+      },
+      {
+        "id": "459116",
+        "title": "The Mower",
+        "date": "1881–82",
+        "medium": "Oil on wood",
+        "file": "artist_459116.jpg"
+      },
+      {
+        "id": "459117",
+        "title": "Study for A Sunday on La Grande Jatte",
+        "date": "1884",
+        "medium": "Oil on wood",
+        "file": "artist_459117.jpg"
+      },
+      {
+        "id": "437656",
+        "title": "The Gardener",
+        "date": "1882–83",
+        "medium": "Oil on wood",
+        "file": "artist_437656.jpg"
+      },
+      {
+        "id": "437659",
+        "title": "View of the Seine",
+        "date": "1882–83",
+        "medium": "Oil on wood",
+        "file": "artist_437659.jpg"
+      },
+      {
+        "id": "437655",
+        "title": "The Forest at Pontaubert",
+        "date": "1881",
+        "medium": "Oil on canvas",
+        "file": "artist_437655.jpg"
+      },
+      {
+        "id": "438123",
+        "title": "A Man Leaning on a Parapet",
+        "date": "ca. 1881",
+        "medium": "Oil on wood",
+        "file": "artist_438123.jpg"
+      },
+      {
+        "id": "437657",
+        "title": "Landscape at Saint-Ouen",
+        "date": "1878 or 1879",
+        "medium": "Oil on wood, mounted on wood",
+        "file": "artist_437657.jpg"
+      },
+      {
+        "id": "438015",
+        "title": "Gray Weather, Grande Jatte",
+        "date": "ca. 1886–88",
+        "medium": "Oil on canvas",
+        "file": "artist_438015.jpg"
+      },
+      {
+        "id": "459108",
+        "title": "The Harvest, Pontoise (La Récolte, Pontoise)",
+        "date": "1881",
+        "medium": "Oil on canvas",
+        "file": "artist_459108.jpg"
+      },
+      {
+        "id": "437304",
+        "title": "Two Young Peasant Women",
+        "date": "1891–92",
+        "medium": "Oil on canvas",
+        "file": "artist_437304.jpg"
+      },
+      {
+        "id": "437344",
+        "title": "The Shepherd's Song",
+        "date": "1891",
+        "medium": "Oil on canvas",
+        "file": "artist_437344.jpg"
+      },
+      {
+        "id": "437998",
+        "title": "Olive Trees",
+        "date": "1889",
+        "medium": "Oil on canvas",
+        "file": "artist_437998.jpg"
+      },
+      {
+        "id": "459094",
+        "title": "Valley with Fir (Shade on the Mountain)",
+        "date": "1909",
+        "medium": "Oil on canvas",
+        "file": "artist_459094.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      }
+    ]
+  },
+  "Munch": {
+    "display_name": "Joos van Wassenhove",
+    "nationality": "Netherlandish",
+    "begin_date": "1460",
+    "end_date": "1480",
+    "artworks": [
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "459092",
+        "title": "Trees and Houses Near the Jas de Bouffan",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_459092.jpg"
+      },
+      {
+        "id": "437497",
+        "title": "The Flagellation; (reverse) The Madonna of Mercy",
+        "date": "ca. 1540",
+        "medium": "Distemper and oil(?) on canvas",
+        "file": "artist_437497.jpg"
+      },
+      {
+        "id": "634108",
+        "title": "The Dream of the Shepherd (Der Traum des Hirten)",
+        "date": "1896",
+        "medium": "Oil on canvas",
+        "file": "artist_634108.jpg"
+      },
+      {
+        "id": "195456",
+        "title": "The Backgammon Players",
+        "date": "1861",
+        "medium": "Painted pine, oil paint on leather, brass, copper",
+        "file": "artist_195456.jpg"
+      },
+      {
+        "id": "11380",
+        "title": "Nocturne",
+        "date": "ca. 1885",
+        "medium": "Watercolor, gouache, and charcoal on off-white wove paper\r adhered to wove paper",
+        "file": "artist_11380.jpg"
+      },
+      {
+        "id": "839045",
+        "title": "The Net Mender (Garnbinderen)",
+        "date": "1879",
+        "medium": "Oil on canvas",
+        "file": "artist_839045.jpg"
+      },
+      {
+        "id": "436039",
+        "title": "The Martyrdom of Saint Barbara",
+        "date": "ca. 1510",
+        "medium": "Oil on linden",
+        "file": "artist_436039.jpg"
+      },
+      {
+        "id": "10777",
+        "title": "Landscape with Shepherd",
+        "date": "1852",
+        "medium": "Oil on canvas",
+        "file": "artist_10777.jpg"
+      },
+      {
+        "id": "435707",
+        "title": "Roadside Halt",
+        "date": "1826",
+        "medium": "Oil on canvas",
+        "file": "artist_435707.jpg"
+      },
+      {
+        "id": "459023",
+        "title": "Madonna and Child",
+        "date": "ca. 1470",
+        "medium": "Tempera, oil, and gold on wood",
+        "file": "artist_459023.jpg"
+      },
+      {
+        "id": "435990",
+        "title": "A Woman Gathering Faggots at Ville-d'Avray",
+        "date": "ca. 1871–74",
+        "medium": "Oil on canvas",
+        "file": "artist_435990.jpg"
+      }
+    ]
+  },
+  "Klimt": {
+    "display_name": "Gustav Klimt",
+    "nationality": "Austrian",
+    "begin_date": "1862",
+    "end_date": "1918",
+    "artworks": [
+      {
+        "id": "436819",
+        "title": "Mäda Primavesi (1903–2000)",
+        "date": "1912–13",
+        "medium": "Oil on canvas",
+        "file": "artist_436819.jpg"
+      },
+      {
+        "id": "436820",
+        "title": "Serena Pulitzer Lederer (1867–1943)",
+        "date": "1899",
+        "medium": "Oil on canvas",
+        "file": "artist_436820.jpg"
+      },
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "459092",
+        "title": "Trees and Houses Near the Jas de Bouffan",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_459092.jpg"
+      },
+      {
+        "id": "437497",
+        "title": "The Flagellation; (reverse) The Madonna of Mercy",
+        "date": "ca. 1540",
+        "medium": "Distemper and oil(?) on canvas",
+        "file": "artist_437497.jpg"
+      },
+      {
+        "id": "634108",
+        "title": "The Dream of the Shepherd (Der Traum des Hirten)",
+        "date": "1896",
+        "medium": "Oil on canvas",
+        "file": "artist_634108.jpg"
+      },
+      {
+        "id": "679686",
+        "title": "Hortensia",
+        "date": "1884",
+        "medium": "Oil on canvas",
+        "file": "artist_679686.jpg"
+      },
+      {
+        "id": "195456",
+        "title": "The Backgammon Players",
+        "date": "1861",
+        "medium": "Painted pine, oil paint on leather, brass, copper",
+        "file": "artist_195456.jpg"
+      },
+      {
+        "id": "11380",
+        "title": "Nocturne",
+        "date": "ca. 1885",
+        "medium": "Watercolor, gouache, and charcoal on off-white wove paper\r adhered to wove paper",
+        "file": "artist_11380.jpg"
+      },
+      {
+        "id": "436039",
+        "title": "The Martyrdom of Saint Barbara",
+        "date": "ca. 1510",
+        "medium": "Oil on linden",
+        "file": "artist_436039.jpg"
+      },
+      {
+        "id": "10777",
+        "title": "Landscape with Shepherd",
+        "date": "1852",
+        "medium": "Oil on canvas",
+        "file": "artist_10777.jpg"
+      },
+      {
+        "id": "435707",
+        "title": "Roadside Halt",
+        "date": "1826",
+        "medium": "Oil on canvas",
+        "file": "artist_435707.jpg"
+      },
+      {
+        "id": "459023",
+        "title": "Madonna and Child",
+        "date": "ca. 1470",
+        "medium": "Tempera, oil, and gold on wood",
+        "file": "artist_459023.jpg"
+      },
+      {
+        "id": "435990",
+        "title": "A Woman Gathering Faggots at Ville-d'Avray",
+        "date": "ca. 1871–74",
+        "medium": "Oil on canvas",
+        "file": "artist_435990.jpg"
+      },
+      {
+        "id": "437056",
+        "title": "Tommaso di Folco Portinari (1428–1501); Maria Portinari (Maria Maddalena Baroncelli, born 1456)",
+        "date": "ca. 1470",
+        "medium": "Oil on oak",
+        "file": "artist_437056.jpg"
+      }
+    ]
+  },
+  "Hopper": {
+    "display_name": "Joos van Wassenhove",
+    "nationality": "Netherlandish",
+    "begin_date": "1460",
+    "end_date": "1480",
+    "artworks": [
+      {
+        "id": "436803",
+        "title": "The Adoration of the Magi",
+        "date": "1472–74",
+        "medium": "Distemper on canvas",
+        "file": "artist_436803.jpg"
+      },
+      {
+        "id": "459092",
+        "title": "Trees and Houses Near the Jas de Bouffan",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_459092.jpg"
+      },
+      {
+        "id": "437497",
+        "title": "The Flagellation; (reverse) The Madonna of Mercy",
+        "date": "ca. 1540",
+        "medium": "Distemper and oil(?) on canvas",
+        "file": "artist_437497.jpg"
+      },
+      {
+        "id": "195456",
+        "title": "The Backgammon Players",
+        "date": "1861",
+        "medium": "Painted pine, oil paint on leather, brass, copper",
+        "file": "artist_195456.jpg"
+      },
+      {
+        "id": "11380",
+        "title": "Nocturne",
+        "date": "ca. 1885",
+        "medium": "Watercolor, gouache, and charcoal on off-white wove paper\r adhered to wove paper",
+        "file": "artist_11380.jpg"
+      },
+      {
+        "id": "436039",
+        "title": "The Martyrdom of Saint Barbara",
+        "date": "ca. 1510",
+        "medium": "Oil on linden",
+        "file": "artist_436039.jpg"
+      },
+      {
+        "id": "10777",
+        "title": "Landscape with Shepherd",
+        "date": "1852",
+        "medium": "Oil on canvas",
+        "file": "artist_10777.jpg"
+      },
+      {
+        "id": "435707",
+        "title": "Roadside Halt",
+        "date": "1826",
+        "medium": "Oil on canvas",
+        "file": "artist_435707.jpg"
+      },
+      {
+        "id": "459023",
+        "title": "Madonna and Child",
+        "date": "ca. 1470",
+        "medium": "Tempera, oil, and gold on wood",
+        "file": "artist_459023.jpg"
+      }
+    ]
+  },
+  "Sargent": {
+    "display_name": "Sargent",
+    "artworks": [
+      {
+        "id": "12127",
+        "title": "Madame X (Virginie Amélie Avegno Gautreau)",
+        "date": "1883–84",
+        "medium": "Oil on canvas",
+        "file": "artist_12127.jpg"
+      }
+    ]
+  },
+  "Whistler": {
+    "display_name": "Whistler",
+    "artworks": [
+      {
+        "id": "459092",
+        "title": "Trees and Houses Near the Jas de Bouffan",
+        "date": "1885–86",
+        "medium": "Oil on canvas",
+        "file": "artist_459092.jpg"
+      }
+    ]
+  }
+}

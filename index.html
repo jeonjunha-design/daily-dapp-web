@@ -25,6 +25,7 @@
       --color-gold: #fde047;    /* 오늘의 영어 */
       --color-orange: #ff9838;  /* 오늘의 천자문 */
       --color-green: #34d399;   /* 오늘의 미술 작품 */
+      --color-rose: #f9a8d4;    /* 화가 컬렉션 */
     }
 
     html { scroll-behavior: smooth; }
@@ -176,6 +177,13 @@
     .card-art .card-label, .card-art .card-action { color: var(--color-green); }
     .card-art:hover {
       border-color: var(--color-green); transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(52, 211, 153, 0.15);
+    }
+    .card-artist .card-label, .card-artist .card-action { color: var(--color-rose); }
+    .card-artist:hover {
+      border-color: var(--color-rose); transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(249, 168, 212, 0.15);
+    }
       background: rgba(52, 211, 153, 0.06); box-shadow: 0 12px 32px rgba(52, 211, 153, 0.18);
     }
     .card:hover .card-action { gap: 10px; }
@@ -332,6 +340,18 @@
           </div>
           <div id="card5Action" class="card-action">오늘의 작품 감상하기 ➔</div>
         </a>
+
+        <a href="ArtistList.html?lang=ko" id="card6Link" class="card card-artist">
+          <div class="card-top">
+            <div class="card-info">
+              <span class="card-label">MASTER ARTISTS</span>
+              <h3 id="card6Title">화가 컬렉션</h3>
+              <p id="card6Desc">레오나르도 다 빈치부터 반 고흐까지. 37명의 거장 화가별로 620여 점의 명화를 만나보세요.</p>
+            </div>
+            <div class="card-icon">🎨</div>
+          </div>
+          <div id="card6Action" class="card-action">화가별 작품 보러 가기 ➔</div>
+        </a>
       </div>
     </div>
   </section>
@@ -379,6 +399,7 @@
         card3Title: "오늘의 English", card3Desc: "부담 없이 하루 한 문장, 원어민 발음 사운드 및 입체 오디오 가이드로 마스터하는 어학 코스", card3Action: "영어 카드 열어보기 ➔",
         card4Title: "오늘의 千字文", card4Desc: "하루 한 글자, 한지 격자 문양 위 나만의 한자 인장을 차곡차곡 채우며 넓히는 인문학 교양", card4Action: "천자문 익히러 가기 ➔",
         card5Title: "오늘의 미술 작품", card5Desc: "매일 하나의 명화와 함께 예술적 감수성을 키워가는 나만의 미술관. 작품 해설과 화가의 이야기로 더 깊이 감상하세요.", card5Action: "오늘의 작품 감상하기 ➔",
+        card6Title: "화가 컬렉션", card6Desc: "레오나르도 다 빈치부터 반 고흐까지. 37명의 거장 화가별로 620여 점의 명화를 만나보세요.", card6Action: "화가별 작품 보러 가기 ➔",
         footerLink1: "이용약관", footerLink2: "개인정보처리방침", footerLink3: "고객지원",
         footerInfo: "<strong>Daily-Dapp Co.</strong> | 대표자: 전준하 | 이메일: jeonjunha@gmail.com",
         footerCopy: "&copy; 2026 Daily-Dapp. All rights reserved. 매일 1%의 꾸준함이 만드는 완벽한 변화.",
@@ -402,6 +423,7 @@
         card3Title: "Daily English", card3Desc: "Master a sentence a day effortlessly with native pronunciation and comprehensive audio guides.", card3Action: "Open English Card ➔",
         card4Title: "Daily Thousand-Character Classic", card4Desc: "Broaden your humanities literacy, stamping your own Hanja seal step-by-step on a traditional grid pattern.", card4Action: "Learn Qianziwen ➔",
         card5Title: "Art of the Day", card5Desc: "Cultivate your artistic sensibility with one masterpiece every day. Dive deeper with artwork commentary and the story behind the artist.", card5Action: "View Today's Artwork ➔",
+        card6Title: "Artist Collection", card6Desc: "From Leonardo da Vinci to Van Gogh. Explore 620+ masterworks organized by 37 great artists.", card6Action: "Browse by Artist ➔",
         footerLink1: "Terms of Service", footerLink2: "Privacy Policy", footerLink3: "Support",
         footerInfo: "<strong>Daily-Dapp Co.</strong> | CEO: Junha Jeon | Email: jeonjunha@gmail.com",
         footerCopy: "&copy; 2026 Daily-Dapp. All rights reserved. Perfect change made by 1% consistency every day.",
@@ -466,6 +488,9 @@
         safeSet('card5Title', 'card5Title');
         safeSet('card5Desc', 'card5Desc');
         safeSet('card5Action', 'card5Action');
+        safeSet('card6Title', 'card6Title');
+        safeSet('card6Desc', 'card6Desc');
+        safeSet('card6Action', 'card6Action');
         
         safeSet('footerLink1', 'footerLink1');
         safeSet('footerLink2', 'footerLink2');
@@ -474,7 +499,7 @@
         safeSet('footerCopy', 'footerCopy', true);
 
         // 카드 하이퍼링크 주소 동적 최적화 연동
-        const linkIds = ['card1Link', 'card2Link', 'card3Link', 'card4Link', 'card5Link'];
+        const linkIds = ['card1Link', 'card2Link', 'card3Link', 'card4Link', 'card5Link', 'card6Link'];
         const targetFiles = ['DailyHoroscope.html', 'AI-3.html', 'Eng11.html', 'Hanja1000.html', 'DailyArt.html'];
         linkIds.forEach((id, idx) => {
           const linkEl = document.getElementById(id);
